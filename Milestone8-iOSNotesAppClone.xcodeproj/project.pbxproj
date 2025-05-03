@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002AF972DC6A03F004F574D /* NATableViewCell.swift */; };
 		4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F42DC686AF0027AB42 /* Assets.xcassets */; };
 		4094E7012DC686AF0027AB42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F72DC686AF0027AB42 /* LaunchScreen.storyboard */; };
 		4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F92DC686AF0027AB42 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4002AF972DC6A03F004F574D /* NATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NATableViewCell.swift; sourceTree = "<group>"; };
 		4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone8-iOSNotesAppClone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				4094E7082DC686ED0027AB42 /* Screens */,
 				4094E7072DC686C40027AB42 /* Support */,
 				4094E6F52DC686AF0027AB42 /* Info.plist */,
+				4002AF972DC6A03F004F574D /* NATableViewCell.swift */,
 			);
 			path = "Milestone8-iOSNotesAppClone";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */,
+				4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */,
 				4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */,
 				4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */,
 				4094E7062DC686AF0027AB42 /* HomeFoldersVC.swift in Sources */,
