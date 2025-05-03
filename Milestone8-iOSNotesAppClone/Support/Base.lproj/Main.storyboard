@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bgq-2c-0aA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -38,8 +38,11 @@
                             <outlet property="delegate" destination="pkD-yF-66R" id="tBN-Ju-ttQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="H5C-MW-8DQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="folder.badge.plus" catalog="system" id="Y3K-tI-5hR"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="H5C-MW-8DQ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addFolderBtn" destination="Y3K-tI-5hR" id="dRx-Zr-NeR"/>
                         <outlet property="searchBar" destination="yEN-SU-hrk" id="XLx-vQ-fYZ"/>
                     </connections>
                 </tableViewController>
@@ -67,6 +70,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder.badge.plus" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
