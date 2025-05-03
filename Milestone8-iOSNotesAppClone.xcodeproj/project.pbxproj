@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		4094E6D62DC5FDF70027AB42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4094E6B42DC5FDED0027AB42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4094E6BB2DC5FDED0027AB42;
+			remoteInfo = "Milestone8-iOSNotesAppClone";
+		};
+		4094E6E02DC5FDF70027AB42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4094E6B42DC5FDED0027AB42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4094E6BB2DC5FDED0027AB42;
+			remoteInfo = "Milestone8-iOSNotesAppClone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone8-iOSNotesAppClone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4094E6E72DC5FDF70027AB42 /* Exceptions for "Milestone8-iOSNotesAppClone" folder in "Milestone8-iOSNotesAppClone" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4094E6BB2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4094E6BE2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4094E6E72DC5FDF70027AB42 /* Exceptions for "Milestone8-iOSNotesAppClone" folder in "Milestone8-iOSNotesAppClone" target */,
+			);
+			path = "Milestone8-iOSNotesAppClone";
+			sourceTree = "<group>";
+		};
+		4094E6D82DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Milestone8-iOSNotesAppCloneTests";
+			sourceTree = "<group>";
+		};
+		4094E6E22DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Milestone8-iOSNotesAppCloneUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4094E6B92DC5FDED0027AB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6D22DC5FDF70027AB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6DC2DC5FDF70027AB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4094E6B32DC5FDED0027AB42 = {
+			isa = PBXGroup;
+			children = (
+				4094E6BE2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */,
+				4094E6D82DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests */,
+				4094E6E22DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests */,
+				4094E6BD2DC5FDED0027AB42 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4094E6BD2DC5FDED0027AB42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */,
+				4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */,
+				4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4094E6BB2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4094E6E82DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppClone" */;
+			buildPhases = (
+				4094E6B82DC5FDED0027AB42 /* Sources */,
+				4094E6B92DC5FDED0027AB42 /* Frameworks */,
+				4094E6BA2DC5FDED0027AB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4094E6BE2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */,
+			);
+			name = "Milestone8-iOSNotesAppClone";
+			packageProductDependencies = (
+			);
+			productName = "Milestone8-iOSNotesAppClone";
+			productReference = 4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4094E6D42DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4094E6ED2DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppCloneTests" */;
+			buildPhases = (
+				4094E6D12DC5FDF70027AB42 /* Sources */,
+				4094E6D22DC5FDF70027AB42 /* Frameworks */,
+				4094E6D32DC5FDF70027AB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4094E6D72DC5FDF70027AB42 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4094E6D82DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests */,
+			);
+			name = "Milestone8-iOSNotesAppCloneTests";
+			packageProductDependencies = (
+			);
+			productName = "Milestone8-iOSNotesAppCloneTests";
+			productReference = 4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4094E6DE2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4094E6F02DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppCloneUITests" */;
+			buildPhases = (
+				4094E6DB2DC5FDF70027AB42 /* Sources */,
+				4094E6DC2DC5FDF70027AB42 /* Frameworks */,
+				4094E6DD2DC5FDF70027AB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4094E6E12DC5FDF70027AB42 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4094E6E22DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests */,
+			);
+			name = "Milestone8-iOSNotesAppCloneUITests";
+			packageProductDependencies = (
+			);
+			productName = "Milestone8-iOSNotesAppCloneUITests";
+			productReference = 4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4094E6B42DC5FDED0027AB42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					4094E6BB2DC5FDED0027AB42 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					4094E6D42DC5FDF70027AB42 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 4094E6BB2DC5FDED0027AB42;
+					};
+					4094E6DE2DC5FDF70027AB42 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 4094E6BB2DC5FDED0027AB42;
+					};
+				};
+			};
+			buildConfigurationList = 4094E6B72DC5FDED0027AB42 /* Build configuration list for PBXProject "Milestone8-iOSNotesAppClone" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4094E6B32DC5FDED0027AB42;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4094E6BD2DC5FDED0027AB42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4094E6BB2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */,
+				4094E6D42DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests */,
+				4094E6DE2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4094E6BA2DC5FDED0027AB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6D32DC5FDF70027AB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6DD2DC5FDF70027AB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4094E6B82DC5FDED0027AB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6D12DC5FDF70027AB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4094E6DB2DC5FDF70027AB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4094E6D72DC5FDF70027AB42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4094E6BB2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */;
+			targetProxy = 4094E6D62DC5FDF70027AB42 /* PBXContainerItemProxy */;
+		};
+		4094E6E12DC5FDF70027AB42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4094E6BB2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone */;
+			targetProxy = 4094E6E02DC5FDF70027AB42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4094E6E92DC5FDF70027AB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Milestone8-iOSNotesAppClone/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppClone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4094E6EA2DC5FDF70027AB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Milestone8-iOSNotesAppClone/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppClone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4094E6EB2DC5FDF70027AB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4094E6EC2DC5FDF70027AB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4094E6EE2DC5FDF70027AB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppCloneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Milestone8-iOSNotesAppClone.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Milestone8-iOSNotesAppClone";
+			};
+			name = Debug;
+		};
+		4094E6EF2DC5FDF70027AB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppCloneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Milestone8-iOSNotesAppClone.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Milestone8-iOSNotesAppClone";
+			};
+			name = Release;
+		};
+		4094E6F12DC5FDF70027AB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppCloneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Milestone8-iOSNotesAppClone";
+			};
+			name = Debug;
+		};
+		4094E6F22DC5FDF70027AB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9MT23QW7V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noahpope.Milestone8-iOSNotesAppCloneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Milestone8-iOSNotesAppClone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4094E6B72DC5FDED0027AB42 /* Build configuration list for PBXProject "Milestone8-iOSNotesAppClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4094E6EB2DC5FDF70027AB42 /* Debug */,
+				4094E6EC2DC5FDF70027AB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4094E6E82DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4094E6E92DC5FDF70027AB42 /* Debug */,
+				4094E6EA2DC5FDF70027AB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4094E6ED2DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppCloneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4094E6EE2DC5FDF70027AB42 /* Debug */,
+				4094E6EF2DC5FDF70027AB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4094E6F02DC5FDF70027AB42 /* Build configuration list for PBXNativeTarget "Milestone8-iOSNotesAppCloneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4094E6F12DC5FDF70027AB42 /* Debug */,
+				4094E6F22DC5FDF70027AB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4094E6B42DC5FDED0027AB42 /* Project object */;
+}
