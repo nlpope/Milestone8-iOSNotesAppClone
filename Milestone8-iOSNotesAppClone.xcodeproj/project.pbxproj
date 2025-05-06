@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002AF972DC6A03F004F574D /* NATableViewCell.swift */; };
+		400809D42DCA4CCC0064778D /* FolderFocusTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */; };
+		400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809D52DCA50110064778D /* NoteDetailVC.swift */; };
 		4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F42DC686AF0027AB42 /* Assets.xcassets */; };
 		4094E7012DC686AF0027AB42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F72DC686AF0027AB42 /* LaunchScreen.storyboard */; };
 		4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F92DC686AF0027AB42 /* Main.storyboard */; };
 		4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6F32DC686AF0027AB42 /* AppDelegate.swift */; };
 		4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */; };
 		4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */; };
-		4094E7062DC686AF0027AB42 /* HomeFoldersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeFoldersVC.swift */; };
+		4094E7062DC686AF0027AB42 /* HomeFoldersTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		4002AF972DC6A03F004F574D /* NATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NATableViewCell.swift; sourceTree = "<group>"; };
+		400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderFocusTableVC.swift; sourceTree = "<group>"; };
+		400809D52DCA50110064778D /* NoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC.swift; sourceTree = "<group>"; };
 		4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone8-iOSNotesAppClone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +49,7 @@
 		4094E6F62DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4094E6F82DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4094E6FC2DC686AF0027AB42 /* HomeFoldersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFoldersVC.swift; sourceTree = "<group>"; };
+		4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFoldersTableVC.swift; sourceTree = "<group>"; };
 		4094E6FE2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone8_iOSNotesAppClone.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,7 +138,9 @@
 		4094E7082DC686ED0027AB42 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4094E6FC2DC686AF0027AB42 /* HomeFoldersVC.swift */,
+				4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */,
+				400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */,
+				400809D52DCA50110064778D /* NoteDetailVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -284,10 +290,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */,
+				400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */,
 				4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */,
+				400809D42DCA4CCC0064778D /* FolderFocusTableVC.swift in Sources */,
 				4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */,
 				4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */,
-				4094E7062DC686AF0027AB42 /* HomeFoldersVC.swift in Sources */,
+				4094E7062DC686AF0027AB42 /* HomeFoldersTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
