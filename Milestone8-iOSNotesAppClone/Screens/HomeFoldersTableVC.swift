@@ -43,8 +43,9 @@ class HomeFoldersTableVC: UITableViewController
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header  = view as! UITableViewHeaderFooterView
+        header.frame.size.width = tableView.bounds.width
         header.textLabel?.font  = UIFont.boldSystemFont(ofSize: 18)
-        header.textLabel?.
+        header.textLabel?.numberOfLines = 0
         header.textLabel?.textColor = UIColor.black
     }
     
