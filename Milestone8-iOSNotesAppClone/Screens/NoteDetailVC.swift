@@ -6,12 +6,28 @@ import UIKit
 
 class NoteDetailVC: UIViewController
 {
+    var script: UITextView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        setNavigation()
     }
     
     //-------------------------------------//
     // MARK: - SET UP
+    
+    func setNavigation()
+    {
+        let doneitem    = UIBarButtonItem(barButtonSystemItem: .done,
+                                          target: self,
+                                          action: #selector(done))
+        navigationItem.rightBarButtonItem = doneitem
+    }
+    
+    
+    @objc func done()
+    {
+        
+    }
 }
