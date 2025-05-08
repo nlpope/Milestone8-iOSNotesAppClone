@@ -12,6 +12,7 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
+        
     }
     
     //-------------------------------------//
