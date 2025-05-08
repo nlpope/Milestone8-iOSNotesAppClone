@@ -6,7 +6,7 @@ import UIKit
 
 class NoteDetailVC: UIViewController
 {
-    var script: UITextView!
+    @IBOutlet var noteTextView: UITextView!
     
     override func viewDidLoad()
     {
@@ -31,4 +31,6 @@ class NoteDetailVC: UIViewController
     {
         
     }
+    
+    #warning("resign 1st responder then save using pers. mgr.")
 }

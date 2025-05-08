@@ -9,25 +9,30 @@ class PersistenceManager
     //-------------------------------------//
     // MARK: SAVE & LOAD METHODS - KEYCHAIN
     
-    @objc func save(folder: String)
+    func save(folders: [NCFolder])
     {
-        KeychainWrapper.standard.set(currentNote, forKey: SaveKeys.noteKey)
-        secret.resignFirstResponder()
-        secret.isHidden = true
-        title           = SecretKeys.maskedTitle
+        for folder in folders {
+            KeychainWrapper.standard.set(folder.title, forKey: folder.key.description)
+        }
     }
         
-    @objc func save(note currentNote: String)
+    func save(notes: [NCNote])
     {
-        KeychainWrapper.standard.set(currentNote, forKey: SaveKeys.noteKey)
-        secret.resignFirstResponder()
-        secret.isHidden = true
-        title           = SecretKeys.maskedTitle
+        for note in notes {
+            KeychainWrapper.standard.set(note.text, forKey: note.key.description)
+
+        }
     }
     
     
-    func loadNote(noteName: String)
+    func loadfolders(completed: @escaping (Result<[NCFolder], Error>) -> Void)
     {
-        secret.text     = KeychainWrapper.standard.string(forKey: SecretKeys.secretMessage) ?? ""
+       
+    }
+    
+    
+    func load(note: NCNote) -> NCNote
+    {
+        note.text     = KeychainWrapper.standard.string(forKey: note.key.description) ?? ""
     }
 }

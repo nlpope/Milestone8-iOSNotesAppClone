@@ -8,4 +8,5 @@ struct NCFolder: Codable
 {
     var title: String
     var notes: [NCNote]
+    var key = UUID()
 }

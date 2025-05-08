@@ -6,6 +6,5 @@ import Foundation
 
 enum SaveKeys
 {
-    static let folderKey    = "folderKey"
-    static let noteKey      = "noteKey"
+ 
 }

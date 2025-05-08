@@ -6,7 +6,7 @@ import UIKit
 
 class FolderFocusTableVC: UITableViewController
 {
-    var folders = [String]()
+    var notes = [NCNote]()
     
     override func viewDidLoad()
     {
@@ -31,4 +31,7 @@ class FolderFocusTableVC: UITableViewController
     {
         return 0
     }
+    
+#warning("resign 1st responder then save using pers. mgr.")
+
 }

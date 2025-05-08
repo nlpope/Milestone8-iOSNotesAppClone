@@ -6,6 +6,8 @@ import Foundation
 
 struct NCNote: Codable
 {
+    var owner: NCFolder
     var title: String
     var text: String
+    var key = UUID()
 }
