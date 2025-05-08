@@ -6,11 +6,21 @@ import UIKit
 
 class FolderFocusTableVC: UITableViewController
 {
-    var notes = [NCNote]()
+    var owner: NCFolder!
+    var notes: [NCNote]!
+    
+    init(owner: NCFolder!)
+    {
+        super.init(nibName: nil, bundle: nil)
+        self.owner = owner
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        notes = owner.notes
         setTableView()
     }
     

@@ -31,8 +31,8 @@ class PersistenceManager
     }
     
     
-    func load(note: NCNote) -> NCNote
+    func load(note: NCNote)
     {
-        note.text     = KeychainWrapper.standard.string(forKey: note.key.description) ?? ""
+//        note.text     = KeychainWrapper.standard.string(forKey: note.key.description) ?? ""
     }
 }
