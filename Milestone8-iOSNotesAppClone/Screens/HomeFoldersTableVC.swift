@@ -25,22 +25,30 @@ class HomeFoldersTableVC: UITableViewController
     
     func setNavigation()
     {
+//        var appearance = UINavigationBarAppearance()
+//        appearance.titlePositionAdjustment = UIOffset(horizontal: -15, vertical: 0)
+//        navigationItem.standardAppearance = appearance
+//        navigationItem.compactAppearance = appearance
+//        navigationItem.titl
+        //---------
         view.backgroundColor = .systemBackground
+        title = "Folders"
         
         let title = UILabel()
         title.text = "Folders"
+        navigationController?.navigationItem.rightBarButtonItem = barbu
         
-        let spacer = UIView()
-        NSLayoutConstraint.activate([
-            spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude),
-        ])
-//        let constraint = spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude)
-//        constraint.isActive = true
-//        constraint.priority = .defaultLow
-        
-        let stack = UIStackView(arrangedSubviews: [title, spacer])
-        stack.axis = .horizontal
-        navigationItem.titleView = stack
+//        let spacer = UIView()
+//        NSLayoutConstraint.activate([
+//            spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude),
+//        ])
+////        let constraint = spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude)
+////        constraint.isActive = true
+////        constraint.priority = .defaultLow
+//        
+//        let stack = UIStackView(arrangedSubviews: [title, spacer])
+//        stack.axis = .horizontal
+//        navigationItem.titleView = stack
     }
     
     
