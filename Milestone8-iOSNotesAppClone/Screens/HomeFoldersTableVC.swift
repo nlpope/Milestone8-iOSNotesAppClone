@@ -36,7 +36,7 @@ class HomeFoldersTableVC: UITableViewController
         
         let title = UILabel()
         title.text = "Folders"
-        navigationController?.navigationItem.rightBarButtonItem = barbu
+        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
 //        let spacer = UIView()
 //        NSLayoutConstraint.activate([
@@ -49,6 +49,12 @@ class HomeFoldersTableVC: UITableViewController
 //        let stack = UIStackView(arrangedSubviews: [title, spacer])
 //        stack.axis = .horizontal
 //        navigationItem.titleView = stack
+    }
+    
+    
+    @objc func editTapped()
+    {
+        
     }
     
     
