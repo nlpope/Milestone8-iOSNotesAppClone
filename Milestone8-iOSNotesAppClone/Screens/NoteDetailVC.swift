@@ -12,7 +12,6 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
-        
     }
     
     //-------------------------------------//
@@ -22,14 +21,14 @@ class NoteDetailVC: UIViewController
     {
         let doneitem    = UIBarButtonItem(barButtonSystemItem: .done,
                                           target: self,
-                                          action: #selector(done))
+                                          action: #selector(doneTapped))
         navigationItem.rightBarButtonItem = doneitem
     }
     
     
-    @objc func done()
+    @objc func doneTapped()
     {
-        
+        print("done tapped")
     }
     
     #warning("resign 1st responder then save using pers. mgr.")

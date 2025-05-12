@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002AF972DC6A03F004F574D /* NATableViewCell.swift */; };
-		400809D42DCA4CCC0064778D /* FolderFocusTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */; };
 		400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809D52DCA50110064778D /* NoteDetailVC.swift */; };
 		400809DF2DCC5F740064778D /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809DE2DCC5F740064778D /* KeychainWrapper.swift */; };
 		400809E02DCC5F740064778D /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809DD2DCC5F740064778D /* KeychainItemAccessibility.swift */; };
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		4002AF972DC6A03F004F574D /* NATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NATableViewCell.swift; sourceTree = "<group>"; };
-		400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderFocusTableVC.swift; sourceTree = "<group>"; };
 		400809D52DCA50110064778D /* NoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC.swift; sourceTree = "<group>"; };
 		400809DD2DCC5F740064778D /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		400809DE2DCC5F740064778D /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */,
-				400809D32DCA4CCC0064778D /* FolderFocusTableVC.swift */,
 				400809D52DCA50110064778D /* NoteDetailVC.swift */,
 			);
 			path = Screens;
@@ -336,7 +333,6 @@
 				4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */,
 				400809E92DCC62A80064778D /* NCNote.swift in Sources */,
 				400809E32DCC5FE90064778D /* PersistenceManager.swift in Sources */,
-				400809D42DCA4CCC0064778D /* FolderFocusTableVC.swift in Sources */,
 				4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */,
 				4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */,
 				4094E7062DC686AF0027AB42 /* HomeFoldersTableVC.swift in Sources */,

@@ -9,17 +9,16 @@ class PersistenceManager
     //-------------------------------------//
     // MARK: SAVE & LOAD METHODS - KEYCHAIN
         
-    func save(notes: [NCNote])
+    func save(note: NCNote)
     {
-        for note in notes {
-            KeychainWrapper.standard.set(note.text, forKey: note.title)
-        }
+        KeychainWrapper.standard.set(note.text, forKey: note.key.description)
     }
     
     
-    func load(notes: [NCNote])
+    func load(withNoteKeys: [UUID])
     {
-        // where is the uuid coming from to access the text @ that point?
-//        note.text     = KeychainWrapper.standard.string(forKey: note.key.description) ?? ""
+//        for noteKey in noteKeys {
+//            note.text = KeychainWrapper.standard.string(forKey: noteKey.description) ?? ""
+//        }
     }
 }

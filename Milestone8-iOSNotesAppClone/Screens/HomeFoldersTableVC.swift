@@ -8,6 +8,7 @@ class HomeFoldersTableVC: UITableViewController
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
+    var noteKeyCollection = [UUID]()
     
     override func viewDidLoad()
     {
@@ -21,17 +22,9 @@ class HomeFoldersTableVC: UITableViewController
     
     func setNavigation()
     {
-//        var appearance = UINavigationBarAppearance()
-//        appearance.titlePositionAdjustment = UIOffset(horizontal: -15, vertical: 0)
-//        navigationItem.standardAppearance = appearance
-//        navigationItem.compactAppearance = appearance
-//        navigationItem.titl
-        //---------
         view.backgroundColor = .systemBackground
         title = "Folders"
-//        navigationItem.navigationBar.title.prefersLargeTitles = true
         navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.topItem?.largeTitleDisplayMode = .inline
        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
@@ -54,6 +47,10 @@ class HomeFoldersTableVC: UITableViewController
         var newNote6 = NCNote(title: "new note 6", text: "a;lkdjf;aljsdf;lakjsdf;l")
         
         notes += [newNote1, newNote2, newNote3, newNote4, newNote5, newNote6]
+        
+        for note in notes {
+            noteKeyCollection.append(note.key)
+        }
     }
     
     //-------------------------------------//

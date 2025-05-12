@@ -6,5 +6,5 @@ import Foundation
 
 enum SaveKeys
 {
- 
+    static var savedNoteKeys = [UUID]()
 }
