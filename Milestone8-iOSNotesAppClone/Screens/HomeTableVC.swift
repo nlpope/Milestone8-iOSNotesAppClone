@@ -4,7 +4,7 @@
 
 import UIKit
 
-class HomeFoldersTableVC: UITableViewController
+class HomeTableVC: UITableViewController
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
@@ -23,7 +23,7 @@ class HomeFoldersTableVC: UITableViewController
     func setNavigation()
     {
         view.backgroundColor = .systemBackground
-        title = "Folders"
+        title = "Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
@@ -56,7 +56,7 @@ class HomeFoldersTableVC: UITableViewController
     //-------------------------------------//
     // MARK: TABLEVC DELEGATE & DATASOURCE METHODS
     
-    override func numberOfSections(in tableView: UITableView) -> Int { return notes.count }
+    override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -78,13 +78,8 @@ class HomeFoldersTableVC: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-//        var vc: FolderFocusTableVC!
-//        for (section, folders) in sectionDictionary {
-//            if section == sectionDictionary[indexPath.row].key {
-//                vc = FolderFocusTableVC(owner: folders[indexPath.row])
-//
-//            }
-//        }
-//        present(vc, animated: true)
+        var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
+
+        present(vc, animated: true)
     }
 }

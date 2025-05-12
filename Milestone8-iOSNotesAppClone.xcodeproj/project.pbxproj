@@ -20,7 +20,7 @@
 		4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6F32DC686AF0027AB42 /* AppDelegate.swift */; };
 		4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */; };
 		4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */; };
-		4094E7062DC686AF0027AB42 /* HomeFoldersTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */; };
+		4094E7062DC686AF0027AB42 /* HomeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		4094E6F62DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4094E6F82DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFoldersTableVC.swift; sourceTree = "<group>"; };
+		4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
 		4094E6FE2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone8_iOSNotesAppClone.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 		4094E7082DC686ED0027AB42 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4094E6FC2DC686AF0027AB42 /* HomeFoldersTableVC.swift */,
+				4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */,
 				400809D52DCA50110064778D /* NoteDetailVC.swift */,
 			);
 			path = Screens;
@@ -335,7 +335,7 @@
 				400809E32DCC5FE90064778D /* PersistenceManager.swift in Sources */,
 				4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */,
 				4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */,
-				4094E7062DC686AF0027AB42 /* HomeFoldersTableVC.swift in Sources */,
+				4094E7062DC686AF0027AB42 /* HomeTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

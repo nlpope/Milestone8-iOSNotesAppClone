@@ -6,7 +6,20 @@ import UIKit
 
 class NoteDetailVC: UIViewController
 {
+    var selectedNote: NCNote!
     @IBOutlet var noteTextView: UITextView!
+    
+    init(selectedNote: NCNote)
+    {
+        super.init(nibName: nil, bundle: nil)
+        self.selectedNote = selectedNote
+    }
+    
+    
+    
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
     
     override func viewDidLoad()
     {
@@ -19,7 +32,7 @@ class NoteDetailVC: UIViewController
     
     func setNavigation()
     {
-        let doneitem    = UIBarButtonItem(barButtonSystemItem: .done,
+        let doneitem = UIBarButtonItem(barButtonSystemItem: .done,
                                           target: self,
                                           action: #selector(doneTapped))
         navigationItem.rightBarButtonItem = doneitem
