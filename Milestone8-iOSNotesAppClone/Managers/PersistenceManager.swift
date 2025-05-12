@@ -8,31 +8,18 @@ class PersistenceManager
 {
     //-------------------------------------//
     // MARK: SAVE & LOAD METHODS - KEYCHAIN
-    
-    func save(folders: [NCFolder])
-    {
-        for folder in folders {
-            KeychainWrapper.standard.set(folder.title, forKey: folder.key.description)
-        }
-    }
         
     func save(notes: [NCNote])
     {
         for note in notes {
-            KeychainWrapper.standard.set(note.text, forKey: note.key.description)
-
+            KeychainWrapper.standard.set(note.text, forKey: note.title)
         }
     }
     
     
-    func loadfolders(completed: @escaping (Result<[NCFolder], Error>) -> Void)
+    func load(notes: [NCNote])
     {
-       
-    }
-    
-    
-    func load(note: NCNote)
-    {
+        // where is the uuid coming from to access the text @ that point?
 //        note.text     = KeychainWrapper.standard.string(forKey: note.key.description) ?? ""
     }
 }

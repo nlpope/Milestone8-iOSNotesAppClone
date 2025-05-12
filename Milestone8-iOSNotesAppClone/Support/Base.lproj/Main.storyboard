@@ -25,26 +25,12 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NCCell" id="5d6-Za-wLe" customClass="NATableViewCell" customModule="Milestone8_iOSNotesAppClone" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="94" width="393" height="42.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NCCell" id="5d6-Za-wLe" customClass="NATableViewCell" customModule="Milestone8_iOSNotesAppClone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5d6-Za-wLe" id="arm-xI-5u2">
-                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="42.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJu-MH-uKC">
-                                            <rect key="frame" x="343" y="11.000000000000002" width="11" height="20.666666666666671"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="vJu-MH-uKC" secondAttribute="trailing" constant="0.66666666666668561" id="P4C-Gl-Z7D"/>
-                                        <constraint firstItem="vJu-MH-uKC" firstAttribute="top" secondItem="arm-xI-5u2" secondAttribute="topMargin" id="Sg4-Yp-p1d"/>
-                                        <constraint firstItem="vJu-MH-uKC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="arm-xI-5u2" secondAttribute="leading" constant="20" symbolic="YES" id="eOa-AH-Opg"/>
-                                        <constraint firstItem="vJu-MH-uKC" firstAttribute="centerY" secondItem="arm-xI-5u2" secondAttribute="centerY" id="gLv-dZ-hxN"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -53,11 +39,9 @@
                             <outlet property="delegate" destination="pkD-yF-66R" id="tBN-Ju-ttQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="folder.badge.plus" catalog="system" id="Y3K-tI-5hR"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="H5C-MW-8DQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addFolderBtn" destination="Y3K-tI-5hR" id="dRx-Zr-NeR"/>
                         <outlet property="searchBar" destination="yEN-SU-hrk" id="XLx-vQ-fYZ"/>
                     </connections>
                 </tableViewController>
@@ -142,7 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.badge.plus" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,11 +7,7 @@ import UIKit
 class HomeFoldersTableVC: UITableViewController
 {
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var addFolderBtn: UITabBarItem!
-    var sectionDictionary: [String:[NCFolder]]!
-    // for tupule in sortedDict: print (kind.value)
-    var sortedSectionDictionaryKeys = [String]()
-    var folders: [NCFolder]!
+    var notes = [NCNote]()
     
     override func viewDidLoad()
     {
@@ -33,83 +29,51 @@ class HomeFoldersTableVC: UITableViewController
         //---------
         view.backgroundColor = .systemBackground
         title = "Folders"
-        
-        let title = UILabel()
-        title.text = "Folders"
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
-        
-//        let spacer = UIView()
-//        NSLayoutConstraint.activate([
-//            spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude),
-//        ])
-////        let constraint = spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: CGFloat.greatestFiniteMagnitude)
-////        constraint.isActive = true
-////        constraint.priority = .defaultLow
-//        
-//        let stack = UIStackView(arrangedSubviews: [title, spacer])
-//        stack.axis = .horizontal
-//        navigationItem.titleView = stack
+//        navigationItem.navigationBar.title.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.topItem?.largeTitleDisplayMode = .inline
+       
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
     
     
     @objc func editTapped()
     {
-        
+        print("edit tapped")
     }
     
     
     func loadDictionary()
     {
-        var quickNotes = NCFolder(title: "Quick Notes", notes: [])
-        var sharedNotes = NCFolder(title: "Shared", notes: [])
-        var iCloudNotes = NCFolder(title: "All iCloud", notes: [])
-        var localNotes = NCFolder(title: "Notes", notes: [])
+        // to be replaced by proper load func in persist. mgr.
+        var newNote1 = NCNote(title: "new note 1", text: "a;lkdjf;aljsdf;lakjsdf;l")
+        var newNote2 = NCNote(title: "new note 2", text: "a;lkdjf;aljsdf;lakjsdf;l")
+        var newNote3 = NCNote(title: "new note 3", text: "a;lkdjf;aljsdf;lakjsdf;l")
+        var newNote4 = NCNote(title: "new note 4", text: "a;lkdjf;aljsdf;lakjsdf;l")
+        var newNote5 = NCNote(title: "new note 5", text: "a;lkdjf;aljsdf;lakjsdf;l")
+        var newNote6 = NCNote(title: "new note 6", text: "a;lkdjf;aljsdf;lakjsdf;l")
         
-        sectionDictionary = [
-            "": [quickNotes, sharedNotes],
-            "iCloud": [iCloudNotes],
-            "On My iPhone": [localNotes]
-        ]
-        
-        sortedSectionDictionaryKeys = Array(sectionDictionary.keys).sorted()
+        notes += [newNote1, newNote2, newNote3, newNote4, newNote5, newNote6]
     }
     
     //-------------------------------------//
     // MARK: TABLEVC DELEGATE & DATASOURCE METHODS
     
-    override func numberOfSections(in tableView: UITableView) -> Int { return sortedSectionDictionaryKeys.count }
-    
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-    {
-        let header  = view as! UITableViewHeaderFooterView
-        header.frame.size.width = tableView.bounds.width
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        header.textLabel?.numberOfLines = 0
-        header.textLabel?.textColor = UIColor.black
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        return sortedSectionDictionaryKeys[section]
-    }
+    override func numberOfSections(in tableView: UITableView) -> Int { return notes.count }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let currentKey = sortedSectionDictionaryKeys[section]
-        let currentValue = sectionDictionary[currentKey]
-        return currentValue?.count ?? 0
+        return notes.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "NCCell")
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") }
         
-        cell.textLabel?.text = "testing"
+        cell.textLabel?.text = notes[indexPath.row].title
         
         return cell
     }
