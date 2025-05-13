@@ -14,9 +14,7 @@ class NoteDetailVC: UIViewController
         super.init(nibName: nil, bundle: nil)
         self.selectedNote = selectedNote
     }
-    
-    
-    
+
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -25,6 +23,7 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
+        setTextView()
     }
     
     //-------------------------------------//
@@ -36,6 +35,12 @@ class NoteDetailVC: UIViewController
                                           target: self,
                                           action: #selector(doneTapped))
         navigationItem.rightBarButtonItem = doneitem
+    }
+    
+    
+    func setTextView()
+    {
+        
     }
     
     
