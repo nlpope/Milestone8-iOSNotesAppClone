@@ -23,6 +23,7 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
+        print(selectedNote.key.description)
         loadText()
     }
     
@@ -40,7 +41,9 @@ class NoteDetailVC: UIViewController
     
     @objc func doneTapped()
     {
-        selectedNote.text = noteTextView.text
+//        selectedNote.text = noteTextView.text ?? ""
+         noteTextView.text = selectedNote.text
+
         saveText()
         print("done tapped")
     }
@@ -60,14 +63,16 @@ class NoteDetailVC: UIViewController
     
     func loadText()
     {
+        print("inside load text")
+        noteTextView.text = "yo wazgood"
         let defaults = UserDefaults.standard
         if let dataToLoad = defaults.object(forKey: selectedNote.key.description) as? Data {
             let jsonDecoder = JSONDecoder()
+            
             do { selectedNote.text = try jsonDecoder.decode(String.self, from: dataToLoad) }
             catch { print("failed to load") }
-            noteTextView.text = selectedNote.text
+            print("selectednote.tex = \(selectedNote.text)")
+//            noteTextView.text = selectedNote.text
         }
     }
-    
-    #warning("resign 1st responder then save using pers. mgr.")
 }

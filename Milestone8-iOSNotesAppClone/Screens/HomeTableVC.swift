@@ -79,8 +79,6 @@ class HomeTableVC: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
-
         navigationController?.pushViewController(vc, animated: true)
-
     }
 }
