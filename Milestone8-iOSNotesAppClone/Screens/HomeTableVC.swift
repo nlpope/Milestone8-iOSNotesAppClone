@@ -80,6 +80,7 @@ class HomeTableVC: UITableViewController
     {
         var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
 
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+
     }
 }
