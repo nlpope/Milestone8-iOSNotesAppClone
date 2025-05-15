@@ -23,7 +23,6 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
-        print(selectedNote.key.description)
         loadText()
     }
     
@@ -41,38 +40,26 @@ class NoteDetailVC: UIViewController
     
     @objc func doneTapped()
     {
-//        selectedNote.text = noteTextView.text ?? ""
-         noteTextView.text = selectedNote.text
-
-        saveText()
+////        selectedNote.text = noteTextView.text ?? ""
+//         noteTextView.text = selectedNote.text
+//
+//        saveText()
         print("done tapped")
     }
     
     //-------------------------------------//
-    // MARK: - SAVE & LOAD
-    
-    func saveText()
+    // MARK: SAVE & LOAD
+        
+    @objc func saveText()
     {
-        let jsonEncoder = JSONEncoder()
-        if let dataToSave = try? jsonEncoder.encode(selectedNote.text) {
-            let defaults = UserDefaults.standard
-            defaults.set(dataToSave, forKey: selectedNote.key.description)
-        } else { print("failed to save") }
+        // add locked feature + mask later
+        PersistenceManager.save(note: selectedNote)
+        noteTextView.resignFirstResponder()
     }
     
     
     func loadText()
     {
-        print("inside load text")
-        noteTextView.text = "yo wazgood"
-        let defaults = UserDefaults.standard
-        if let dataToLoad = defaults.object(forKey: selectedNote.key.description) as? Data {
-            let jsonDecoder = JSONDecoder()
-            
-            do { selectedNote.text = try jsonDecoder.decode(String.self, from: dataToLoad) }
-            catch { print("failed to load") }
-            print("selectednote.tex = \(selectedNote.text)")
-//            noteTextView.text = selectedNote.text
-        }
+        PersistenceManager.load(noteForKey: selectedNote.key.description)
     }
 }

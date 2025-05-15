@@ -8,3 +8,9 @@ enum SaveKeys
 {
     static var savedNoteKeys = [UUID]()
 }
+
+enum MaskKeys
+{
+    static var titleMask = "Private"
+    static var touchIDReason = "Your identity must first be confirmed via Touch ID. May we make this attempt now?"
+}

@@ -4,19 +4,22 @@
 
 import Foundation
 
-class PersistenceManager
+enum PersistenceManager
 {
     //-------------------------------------//
     // MARK: SAVE & LOAD METHODS - KEYCHAIN
         
-    func save(note: NCNote)
+    static func save(note: NCNote)
     {
+        // add locked feature + mask later
         KeychainWrapper.standard.set(note.text, forKey: note.key.description)
+        
     }
     
     
-    func load(withNoteKeys: [UUID])
+    static func load(noteForKey key: String) -> String
     {
+        return KeychainWrapper.standard.string(forKey: key) ?? ""
 //        for noteKey in noteKeys {
 //            note.text = KeychainWrapper.standard.string(forKey: noteKey.description) ?? ""
 //        }
