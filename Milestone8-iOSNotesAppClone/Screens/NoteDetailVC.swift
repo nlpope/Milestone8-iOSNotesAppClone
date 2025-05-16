@@ -4,10 +4,15 @@
 
 import UIKit
 
+protocol NoteDetailVCDelegate: AnyObject {
+    func updateNotes(with note: NCNote)
+}
+
 class NoteDetailVC: UIViewController
 {
     @IBOutlet var noteTextView: UITextView!
     var selectedNote: NCNote!
+    var delegate: NoteDetailVCDelegate!
     
     override func viewDidLoad()
     {
@@ -30,11 +35,9 @@ class NoteDetailVC: UIViewController
     
     @objc func doneTapped()
     {
-////        selectedNote.text = noteTextView.text ?? ""
-//         noteTextView.text = selectedNote.text
-//
-//        saveText()
-        print("done tapped")
+        resignFirstResponder()
+        saveText()
+        delegate.updateNotes(with: selectedNote)
     }
     
     //-------------------------------------//

@@ -4,11 +4,10 @@
 
 import UIKit
 
-class HomeTableVC: UITableViewController
+class HomeTableVC: UITableViewController, NoteDetailVCDelegate
 {
     @IBOutlet var searchBar: UISearchBar!
-//    var notes = [NCNote]()
-    public var noteKeyArray = [UUID]()
+    var notes = [NCNote]()
     
     override func viewDidLoad()
     {
@@ -95,5 +94,14 @@ class HomeTableVC: UITableViewController
             vc.selectedNote = notes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    //-------------------------------------//
+    // MARK: - NoteDetailVC Delegate Method
+    
+    func updateNotes(with note: NCNote)
+    {
+        
+        print("delegate got the msg")
     }
 }

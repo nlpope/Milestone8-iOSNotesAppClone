@@ -11,9 +11,7 @@ enum PersistenceManager
         
     static func save(note: NCNote)
     {
-        // add locked feature + mask later
         KeychainWrapper.standard.set(note.text, forKey: note.key.description)
-        
     }
     
     
