@@ -6,7 +6,7 @@ import Foundation
 
 enum SaveKeys
 {
-    static var savedNoteKeys = [UUID]()
+    static let allNotes = "AllNotes"
 }
 
 enum MaskKeys
