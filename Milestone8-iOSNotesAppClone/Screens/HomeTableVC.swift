@@ -8,16 +8,31 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
+    var noteKeys
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         setNavigation()
-        loadDictionary()
+        loadNotes()
     }
     
     //-------------------------------------//
     // MARK: SET UP
+    
+    func loadNotes()
+    {
+        PersistenceManager.loadAllNotes()
+//        var newNote1 = NCNote(title: "new note 1", text: "note for 1")
+//        var newNote2 = NCNote(title: "new note 2", text: "note for 2")
+//        var newNote3 = NCNote(title: "new note 3", text: "note for 3")
+//        var newNote4 = NCNote(title: "new note 4", text: "note for 4")
+//        var newNote5 = NCNote(title: "new note 5", text: "note for 5")
+//        var newNote6 = NCNote(title: "new note 6", text: "note for 6")
+//        
+//        notes += [newNote1, newNote2, newNote3, newNote4, newNote5, newNote6]
+    }
+    
     
     func setNavigation()
     {
@@ -40,7 +55,14 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     
     @objc func addTapped()
     {
-        print("creating new note")
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
+            vc.delegate = self
+            var newNote = NCNote(title: "", text: "")
+            vc.selectedNote = newNote
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
         var newNote = NCNote(title: "", text: "")
         
         //present instantiated storyboard vc of notedetail
@@ -48,20 +70,6 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
         //..then bring the key back out here?
         //append new note in array
         //reload data in tableview
-    }
-    
-    
-    func loadDictionary()
-    {
-        // to be replaced by proper load func in persist. mgr.
-        var newNote1 = NCNote(title: "new note 1", text: "note for 1")
-        var newNote2 = NCNote(title: "new note 2", text: "note for 2")
-        var newNote3 = NCNote(title: "new note 3", text: "note for 3")
-        var newNote4 = NCNote(title: "new note 4", text: "note for 4")
-        var newNote5 = NCNote(title: "new note 5", text: "note for 5")
-        var newNote6 = NCNote(title: "new note 6", text: "note for 6")
-        
-        notes += [newNote1, newNote2, newNote3, newNote4, newNote5, newNote6]
     }
     
     //-------------------------------------//
@@ -91,6 +99,7 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     {
 //        var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
+            vc.delegate = self
             vc.selectedNote = notes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -99,9 +108,14 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     //-------------------------------------//
     // MARK: - NoteDetailVC Delegate Method
     
-    func updateNotes(with note: NCNote)
+    func updateNotes(with thisNote: NCNote)
     {
+        notes.removeAll{ $0.key == thisNote.key }
+        notes.append(thisNote)
         
-        print("delegate got the msg")
+        PersistenceManager.delete(noteForKey: thisNote.key.description)
+        PersistenceManager.save(note: thisNote)
+        
+        tableView.reloadData()
     }
 }

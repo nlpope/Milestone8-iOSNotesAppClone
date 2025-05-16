@@ -4,9 +4,7 @@
 
 import UIKit
 
-protocol NoteDetailVCDelegate: AnyObject {
-    func updateNotes(with note: NCNote)
-}
+protocol NoteDetailVCDelegate: AnyObject { func updateNotes(with thisNote: NCNote) }
 
 class NoteDetailVC: UIViewController
 {
@@ -21,6 +19,8 @@ class NoteDetailVC: UIViewController
         loadText()
     }
     
+    override func viewWillDisappear(_ animated: Bool) { doneTapped() }
+    
     //-------------------------------------//
     // MARK: - SET UP
     
@@ -32,25 +32,24 @@ class NoteDetailVC: UIViewController
         navigationItem.rightBarButtonItem = doneitem
     }
     
+    //-------------------------------------//
+    // MARK: SAVE & LOAD
     
     @objc func doneTapped()
     {
-        resignFirstResponder()
-        saveText()
+        noteTextView.resignFirstResponder()
+        if let noteText = noteTextView.text {
+            let newLine = noteText.firstIndex(of: "\n") ?? noteText.endIndex
+            let newNoteTitle = noteText[..<newLine]
+            
+            selectedNote.text = noteText
+            selectedNote.title = String(newNoteTitle)
+        }
+
         delegate.updateNotes(with: selectedNote)
     }
     
-    //-------------------------------------//
-    // MARK: SAVE & LOAD
-        
-    @objc func saveText()
-    {
-        // add locked feature + mask later
-        PersistenceManager.save(note: selectedNote)
-        noteTextView.resignFirstResponder()
-    }
-    
-    
+ 
     func loadText()
     {
         noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)

@@ -17,6 +17,18 @@ enum PersistenceManager
     
     static func load(noteForKey key: String) -> String
     {
-        return KeychainWrapper.standard.string(forKey: key) ?? "yoooooo! wuzgood"
+        return KeychainWrapper.standard.string(forKey: key) ?? ""
+    }
+    
+    
+    static func loadAllNotes() -> [NCNote]
+    {
+        
+    }
+    
+    
+    static func delete(noteForKey key: String)
+    {
+        KeychainWrapper.standard.removeObject(forKey: key)
     }
 }
