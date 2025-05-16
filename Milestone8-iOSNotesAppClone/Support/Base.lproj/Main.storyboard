@@ -70,7 +70,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="noteTextView" destination="49R-nt-PfX" id="8GB-ed-fAf"/>
+                        <outlet property="noteTextView" destination="49R-nt-PfX" id="kAv-BJ-DTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAD-ep-GTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@ import UIKit
 class NoteDetailVC: UIViewController
 {
     @IBOutlet var noteTextView: UITextView!
+//    var noteTextView: UITextView!
     var selectedNote: NCNote!
     
 //    init(selectedNote: NCNote)
@@ -23,7 +24,9 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
-        loadText()
+//        loadText()
+        noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)
+
     }
     
     //-------------------------------------//
