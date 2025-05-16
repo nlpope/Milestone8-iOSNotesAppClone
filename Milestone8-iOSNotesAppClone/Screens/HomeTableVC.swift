@@ -8,7 +8,6 @@ class HomeTableVC: UITableViewController
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
-    var noteKeyCollection = [UUID]()
     
     override func viewDidLoad()
     {
@@ -48,9 +47,9 @@ class HomeTableVC: UITableViewController
         
         notes += [newNote1, newNote2, newNote3, newNote4, newNote5, newNote6]
         
-        for note in notes {
-            noteKeyCollection.append(note.key)
-        }
+//        for note in notes {
+//            noteKeyCollection.append(note.key)
+//        }
     }
     
     //-------------------------------------//
@@ -78,7 +77,9 @@ class HomeTableVC: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
+//        var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
+        let vc = NoteDetailVC()
+        vc.selectedNote = notes[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

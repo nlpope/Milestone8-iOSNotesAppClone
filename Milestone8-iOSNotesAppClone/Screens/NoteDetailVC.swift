@@ -9,14 +9,14 @@ class NoteDetailVC: UIViewController
     @IBOutlet var noteTextView: UITextView!
     var selectedNote: NCNote!
     
-    init(selectedNote: NCNote)
-    {
-        super.init(nibName: nil, bundle: nil)
-        self.selectedNote = selectedNote
-    }
+//    init(selectedNote: NCNote)
+//    {
+//        super.init(nibName: nil, bundle: nil)
+//        self.selectedNote = selectedNote
+//    }
 
     
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+//    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     
     override func viewDidLoad()
@@ -60,6 +60,7 @@ class NoteDetailVC: UIViewController
     
     func loadText()
     {
-        PersistenceManager.load(noteForKey: selectedNote.key.description)
+        #warning("notTextView reading nil/crashing app")
+        noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)
     }
 }
