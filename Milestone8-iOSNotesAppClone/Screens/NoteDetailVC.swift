@@ -7,26 +7,13 @@ import UIKit
 class NoteDetailVC: UIViewController
 {
     @IBOutlet var noteTextView: UITextView!
-//    var noteTextView: UITextView!
     var selectedNote: NCNote!
-    
-//    init(selectedNote: NCNote)
-//    {
-//        super.init(nibName: nil, bundle: nil)
-//        self.selectedNote = selectedNote
-//    }
-
-    
-//    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         setNavigation()
-//        loadText()
-        noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)
-
+        loadText()
     }
     
     //-------------------------------------//
@@ -63,7 +50,6 @@ class NoteDetailVC: UIViewController
     
     func loadText()
     {
-        #warning("notTextView reading nil/crashing app")
         noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)
     }
 }

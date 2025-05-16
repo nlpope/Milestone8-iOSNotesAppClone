@@ -19,10 +19,6 @@ enum PersistenceManager
     
     static func load(noteForKey key: String) -> String
     {
-        return "wuzgood"
-//        return KeychainWrapper.standard.string(forKey: key) ?? "yo wuzgood"
-//        for noteKey in noteKeys {
-//            note.text = KeychainWrapper.standard.string(forKey: noteKey.description) ?? ""
-//        }
+        return KeychainWrapper.standard.string(forKey: key) ?? "yoooooo! wuzgood"
     }
 }

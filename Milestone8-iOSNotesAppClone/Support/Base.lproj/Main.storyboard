@@ -52,7 +52,7 @@
         <!--Note DetailVC-->
         <scene sceneID="LEY-PG-cTG">
             <objects>
-                <viewController id="tPN-yj-TCn" customClass="NoteDetailVC" customModule="Milestone8_iOSNotesAppClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteDetailVC" id="tPN-yj-TCn" customClass="NoteDetailVC" customModule="Milestone8_iOSNotesAppClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OIq-qQ-n0N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
