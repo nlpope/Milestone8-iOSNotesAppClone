@@ -9,6 +9,8 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
     var noteKeys = [String]()
+    var editButton: UIBarButtonItem!
+    var addButton: UIBarButtonItem!
     
     override func viewDidLoad()
     {
@@ -26,8 +28,8 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
         title = "Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
+        editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+        addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
        
         navigationItem.rightBarButtonItems = [editButton, addButton]
     }
@@ -35,7 +37,13 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     
     @objc func editTapped()
     {
-        print("edit tapped")
+        if self.tableView.isEditing == false {
+            editButton.title = "Done"
+            self.tableView.isEditing = true
+        } else {
+            editButton.title = "Edit"
+            self.tableView.isEditing = false
+        }
     }
     
     
@@ -65,8 +73,8 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     {
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "NCCell")
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") }
-        
-        cell.textLabel?.text = notes[indexPath.row].title
+        let title = notes[indexPath.row].title
+        cell.textLabel?.text = title == "" ? "New Note" : title
         
         return cell
     }
@@ -74,11 +82,29 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-//        var vc = NoteDetailVC(selectedNote: notes[indexPath.row])
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
             vc.delegate = self
             vc.selectedNote = notes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    
+    // does not swipe for delete when this is grayed out
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            let note = notes[indexPath.row]
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            tableView.endUpdates()
         }
     }
     
@@ -87,7 +113,7 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     
     func updateNotes(with thisNote: NCNote)
     {
-        notes.removeAll{ $0.key == thisNote.key }
+//        notes.removeAll{ $0.key == thisNote.key }
         notes.append(thisNote)
         
         PersistenceManager.delete(noteForKey: thisNote.key.description)
@@ -95,6 +121,15 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
         PersistenceManager.saveAll(notes: notes)
         
         tableView.reloadData()
+    }
+    
+    
+    func delete(note: NCNote, atIndex indexPath: IndexPath)
+    {
+        notes.removeAll{ $0.key == note.key }
+        PersistenceManager.delete(noteForKey: note.key.description)
+        notes.remove(at: indexPath.row)
+        PersistenceManager.saveAll(notes: notes)
     }
     
     

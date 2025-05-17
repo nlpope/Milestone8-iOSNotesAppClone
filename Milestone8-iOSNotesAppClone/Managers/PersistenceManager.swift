@@ -4,10 +4,58 @@
 
 import Foundation
 
+enum PersistenceActionType { case add, remove }
+
 enum PersistenceManager
 {
     //-------------------------------------//
     // MARK: SAVE & LOAD METHODS - KEYCHAIN
+    
+    static private let defaults = UserDefaults.standard
+    
+    static func updateWith(note: NCNote, actionType: PersistenceActionType, completed: @escaping (NCError?) -> Void)
+    {
+        retrieveNotes { result in
+            switch result {
+            case .success(var notes):
+                handle(action)
+            case .failure(let error):
+            }
+            
+        }
+    }
+    
+    
+    private func handle(actionType: PersistenceActionType)
+    {
+        switch actionType {
+        case .add:
+        case .remove:
+        }
+    }
+    
+    
+    static func retrieveNotes(completed: @escaping (Result<[NCNote],NCError>) -> Void)
+    {
+        guard let notesData = defaults.object(forKey: SaveKeys.allNotes) as? Data
+        else { completed(.success([])); return }
+        
+        do {
+            let decoder = JSONDecoder()
+            let savedNotes = try decoder.decode([NCNote].self, from: notesData)
+            completed(.success(savedNotes))
+        } catch {
+            completed(.failure(.unableToLoad))
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
         
     static func save(note: NCNote)
     {
@@ -35,7 +83,6 @@ enum PersistenceManager
         if let encodedData = try? jsonEncoder.encode(notes) {
             let defaults = UserDefaults.standard
             defaults.set(encodedData, forKey: SaveKeys.allNotes)
-            #warning("replace with NCError handler in here & load func")
         } else { print("error saving all notes") }
     }
     

@@ -21,6 +21,7 @@
 		4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */; };
 		4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */; };
 		4094E7062DC686AF0027AB42 /* HomeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */; };
+		40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
 		4094E6FE2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone8_iOSNotesAppClone.xcdatamodel; sourceTree = "<group>"; };
+		40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NCError+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				400809E52DCC61900064778D /* Constants+Utils.swift */,
+				40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */,
+				40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */,
 				400809E62DCC61900064778D /* Constants+Utils.swift in Sources */,
 				400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */,
 				400809DF2DCC5F740064778D /* KeychainWrapper.swift in Sources */,
