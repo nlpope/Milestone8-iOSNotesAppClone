@@ -18,18 +18,24 @@ enum PersistenceManager
         retrieveNotes { result in
             switch result {
             case .success(var notes):
-                handle(action)
+                handle(actionType: actionType, onNote: note, inArray: notes)
             case .failure(let error):
             }
             
         }
     }
     
-    
-    private func handle(actionType: PersistenceActionType)
+    #warning("change notes to inout param?")
+    static func handle(actionType: PersistenceActionType, onNote note: NCNote, inArray notes: &[NCNote])
     {
         switch actionType {
         case .add:
+            var noteKeys = [String]()
+            for note in notes { noteKeys.append(note.key.description) }
+            guard !noteKeys.contains(note.key.description)
+                    // in the else statement - make an error type completion handlingn 'already in notes' without warning the user or rather find a cleaner way to nix the duplicate and replace it w the new UUID?
+            else { return }
+            notes.append(note)
         case .remove:
         }
     }
