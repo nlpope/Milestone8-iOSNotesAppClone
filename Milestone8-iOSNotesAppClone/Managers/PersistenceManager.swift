@@ -13,6 +13,8 @@ enum PersistenceManager
     
     static private let defaults = UserDefaults.standard
     
+    // the escape is what makes this cleaner
+    // means I don't need to return arrays and save/load all over the place
     static func updateWith(note: NCNote, actionType: PersistenceActionType, completed: @escaping (NCError?) -> Void)
     {
         retrieveNotes { result in
@@ -38,7 +40,7 @@ enum PersistenceManager
         }
     }
     
-    
+
     static func retrieveNotes(completed: @escaping (Result<[NCNote],NCError>) -> Void)
     {
         guard let notesData = defaults.object(forKey: SaveKeys.allNotes) as? Data
@@ -64,56 +66,5 @@ enum PersistenceManager
         } catch {
             return .unableToSave
         }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-        
-    static func save(note: NCNote)
-    {
-        KeychainWrapper.standard.set(note.text, forKey: note.key.description)
-    }
-    
-    
-    static func load(noteForKey key: String) -> String
-    {
-        return KeychainWrapper.standard.string(forKey: key) ?? ""
-    }
-    
-    
-    static func delete(noteForKey key: String)
-    {
-        KeychainWrapper.standard.removeObject(forKey: key)
-    }
-    
-    //-------------------------------------//
-    // MARK: SAVE & LOAD METHODS - USER DEFAULTS
-    
-    static func saveAll(notes: [NCNote])
-    {
-        let jsonEncoder = JSONEncoder()
-        if let encodedData = try? jsonEncoder.encode(notes) {
-            let defaults = UserDefaults.standard
-            defaults.set(encodedData, forKey: SaveKeys.allNotes)
-        } else { print("error saving all notes") }
-    }
-    
-    
-    static func loadAllNotes() -> [NCNote]
-    {
-        var loadedNotes = [NCNote]()
-        let defaults = UserDefaults.standard
-        if let dataToDecode = defaults.object(forKey: SaveKeys.allNotes) as? Data {
-            let jsonDecoder = JSONDecoder()
-            do { loadedNotes = try jsonDecoder.decode([NCNote].self, from: dataToDecode) }
-            catch { print("error loading all notes") }
-        }
-        
-        return loadedNotes
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002AF972DC6A03F004F574D /* NATableViewCell.swift */; };
 		400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809D52DCA50110064778D /* NoteDetailVC.swift */; };
 		400809DF2DCC5F740064778D /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809DE2DCC5F740064778D /* KeychainWrapper.swift */; };
 		400809E02DCC5F740064778D /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809DD2DCC5F740064778D /* KeychainItemAccessibility.swift */; };
@@ -16,7 +15,6 @@
 		400809E92DCC62A80064778D /* NCNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809E82DCC62A80064778D /* NCNote.swift */; };
 		405B2E352DDCC30000F639F6 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2E342DDCC30000F639F6 /* UIViewController+Ext.swift */; };
 		4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F42DC686AF0027AB42 /* Assets.xcassets */; };
-		4094E7012DC686AF0027AB42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F72DC686AF0027AB42 /* LaunchScreen.storyboard */; };
 		4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F92DC686AF0027AB42 /* Main.storyboard */; };
 		4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6F32DC686AF0027AB42 /* AppDelegate.swift */; };
 		4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */; };
@@ -43,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4002AF972DC6A03F004F574D /* NATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NATableViewCell.swift; sourceTree = "<group>"; };
 		400809D52DCA50110064778D /* NoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC.swift; sourceTree = "<group>"; };
 		400809DD2DCC5F740064778D /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		400809DE2DCC5F740064778D /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		4094E6F32DC686AF0027AB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4094E6F42DC686AF0027AB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4094E6F52DC686AF0027AB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4094E6F62DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4094E6F82DC686AF0027AB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
@@ -166,7 +162,6 @@
 				4094E7082DC686ED0027AB42 /* Screens */,
 				4094E7072DC686C40027AB42 /* Support */,
 				4094E6F52DC686AF0027AB42 /* Info.plist */,
-				4002AF972DC6A03F004F574D /* NATableViewCell.swift */,
 			);
 			path = "Milestone8-iOSNotesAppClone";
 			sourceTree = "<group>";
@@ -180,7 +175,6 @@
 				400809DE2DCC5F740064778D /* KeychainWrapper.swift */,
 				4094E6F42DC686AF0027AB42 /* Assets.xcassets */,
 				4094E6F92DC686AF0027AB42 /* Main.storyboard */,
-				4094E6F72DC686AF0027AB42 /* LaunchScreen.storyboard */,
 				4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */,
 			);
 			path = Support;
@@ -313,7 +307,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */,
-				4094E7012DC686AF0027AB42 /* LaunchScreen.storyboard in Resources */,
 				4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +339,6 @@
 				400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */,
 				400809DF2DCC5F740064778D /* KeychainWrapper.swift in Sources */,
 				400809E02DCC5F740064778D /* KeychainItemAccessibility.swift in Sources */,
-				4002AF982DC6A03F004F574D /* NATableViewCell.swift in Sources */,
 				400809E92DCC62A80064778D /* NCNote.swift in Sources */,
 				400809E32DCC5FE90064778D /* PersistenceManager.swift in Sources */,
 				4094E7042DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld in Sources */,
@@ -385,14 +377,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4094E6F72DC686AF0027AB42 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4094E6F62DC686AF0027AB42 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		4094E6F92DC686AF0027AB42 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

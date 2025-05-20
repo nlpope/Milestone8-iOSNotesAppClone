@@ -16,7 +16,7 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
-        loadText()
+        noteTextView.text = selectedNote.text
     }
     
     override func viewWillDisappear(_ animated: Bool) { doneTapped() }
@@ -47,11 +47,5 @@ class NoteDetailVC: UIViewController
         }
 
         delegate.updateNotes(with: selectedNote)
-    }
-    
- 
-    func loadText()
-    {
-        noteTextView.text = PersistenceManager.load(noteForKey: selectedNote.key.description)
     }
 }

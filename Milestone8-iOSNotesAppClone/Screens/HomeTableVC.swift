@@ -109,17 +109,32 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     }
     
     //-------------------------------------//
-    // MARK: - NoteDetailVC Delegate Methods & LOADING
+    // MARK: - NoteDetailVC Delegate Methods (SAVING & LOADING)
     
     func updateNotes(with thisNote: NCNote)
     {
-        PersistenceManager.updateWith(note: thisNote, actionType: .add) { error in
-            guard let error = error
-            else { print("save successful"); return }
+        PersistenceManager.updateWith(note: thisNote, actionType: .add) { [weak self] error in
+            if error != nil {
+                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
+            } else {
+                print("save successful")
+                self?.loadNotes()
+                self?.tableView.reloadData()
+            }
         }
-        
-        loadNotes()
-        tableView.reloadData()
+    }
+    
+    
+    func loadNotes()
+    {
+        PersistenceManager.retrieveNotes { [weak self] result in
+            switch result {
+            case .success(let updatedNotes):
+                self?.notes = updatedNotes
+            case .failure(_):
+                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
+            }
+        }
     }
     
     
@@ -143,20 +158,4 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
 //        tableView.reloadData()
 //    }
     
-    
-    
-    
-    
-    func loadNotes()
-    {
-        PersistenceManager.retrieveNotes { [weak self] result in
-            switch result {
-            case .success(var updatedNotes):
-                self?.notes = updatedNotes
-            case .failure(let error):
-                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
-            }
-        }
-//        notes = PersistenceManager.loadAllNotes()
-    }
 }
