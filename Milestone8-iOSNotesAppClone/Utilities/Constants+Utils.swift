@@ -11,6 +11,11 @@ enum SaveKeys
 
 enum MaskKeys
 {
-    static var titleMask = "Private"
-    static var touchIDReason = "Your identity must first be confirmed via Touch ID. May we make this attempt now?"
+    static let titleMask = "Private"
+    static let touchIDReason = "Your identity must first be confirmed via Touch ID. May we make this attempt now?"
+}
+
+enum MessageKeys
+{
+    static let loadFail = "Notes were not able to load successfully. Please try again."
 }

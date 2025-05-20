@@ -113,28 +113,50 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     
     func updateNotes(with thisNote: NCNote)
     {
-//        notes.removeAll{ $0.key == thisNote.key }
-        notes.append(thisNote)
+        PersistenceManager.updateWith(note: thisNote, actionType: .add) { error in
+            guard let error = error
+            else { print("save successful"); return }
+        }
         
-        PersistenceManager.delete(noteForKey: thisNote.key.description)
-        PersistenceManager.save(note: thisNote)
-        PersistenceManager.saveAll(notes: notes)
-        
+        loadNotes()
         tableView.reloadData()
     }
     
     
-    func delete(note: NCNote, atIndex indexPath: IndexPath)
-    {
-        notes.removeAll{ $0.key == note.key }
-        PersistenceManager.delete(noteForKey: note.key.description)
-        notes.remove(at: indexPath.row)
-        PersistenceManager.saveAll(notes: notes)
-    }
+//    func delete(note: NCNote, atIndex indexPath: IndexPath)
+//    {
+//        notes.removeAll{ $0.key == note.key }
+//        PersistenceManager.delete(noteForKey: note.key.description)
+//        notes.remove(at: indexPath.row)
+//        PersistenceManager.saveAll(notes: notes)
+//    }
+    
+//    func updateNotes(with thisNote: NCNote)
+//    {
+////        notes.removeAll{ $0.key == thisNote.key }
+//        notes.append(thisNote)
+//        
+//        PersistenceManager.delete(noteForKey: thisNote.key.description)
+//        PersistenceManager.save(note: thisNote)
+//        PersistenceManager.saveAll(notes: notes)
+//        
+//        tableView.reloadData()
+//    }
+    
+    
+    
     
     
     func loadNotes()
     {
-        notes = PersistenceManager.loadAllNotes()
+        PersistenceManager.retrieveNotes { [weak self] result in
+            switch result {
+            case .success(var updatedNotes):
+                self?.notes = updatedNotes
+            case .failure(let error):
+                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
+            }
+        }
+//        notes = PersistenceManager.loadAllNotes()
     }
 }
