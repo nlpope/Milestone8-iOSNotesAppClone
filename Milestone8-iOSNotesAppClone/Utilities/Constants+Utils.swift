@@ -17,5 +17,5 @@ enum MaskKeys
 
 enum MessageKeys
 {
-    static let loadFail = "Notes were not able to load successfully. Please try again."
+    static let removeFail = "Unable to delete this note. Please try again."
 }

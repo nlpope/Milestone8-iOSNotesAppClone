@@ -17,6 +17,7 @@ enum PersistenceManager
     // means I don't need to return arrays and save/load all over the place
     static func updateWith(note: NCNote, actionType: PersistenceActionType, completed: @escaping (NCError?) -> Void)
     {
+        print("insided persis mgr")
         retrieveNotes { result in
             switch result {
             case .success(var notes):

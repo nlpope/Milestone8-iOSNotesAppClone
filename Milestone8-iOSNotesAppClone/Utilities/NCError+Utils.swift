@@ -6,7 +6,7 @@ import Foundation
 
 enum NCError: String, Error
 {
-    case unableToSave = "unable to save"
-    case unableToLoad = "unable to load"
-    case unableToDelete = "unable to delete"
+    case unableToSave = "Unable to save this note. Please try again."
+    case unableToLoad = "Notes were not able to load successfully. Please try again."
+    case unableToDelete = "Unable to delete this note. Please try again."
 }

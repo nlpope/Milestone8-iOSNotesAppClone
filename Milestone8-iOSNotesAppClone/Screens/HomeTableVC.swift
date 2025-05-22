@@ -4,12 +4,10 @@
 
 import UIKit
 
-class HomeTableVC: UITableViewController, NoteDetailVCDelegate
+class HomeTableVC: UITableViewController
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
-    var noteKeys = [String]()
-    var editButton: UIBarButtonItem!
     var addButton: UIBarButtonItem!
     
     override func viewDidLoad()
@@ -18,6 +16,9 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
         setNavigation()
         loadNotes()
     }
+    
+    
+//    override func viewWillAppear(_ animated: Bool) { print("vwappear entered"); loadNotes() }
     
     //-------------------------------------//
     // MARK: SET UP
@@ -28,29 +29,15 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
         title = "Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
        
-        navigationItem.rightBarButtonItems = [editButton, addButton]
-    }
-    
-    
-    @objc func editTapped()
-    {
-        if self.tableView.isEditing == false {
-            editButton.title = "Done"
-            self.tableView.isEditing = true
-        } else {
-            editButton.title = "Edit"
-            self.tableView.isEditing = false
-        }
+        navigationItem.rightBarButtonItem = addButton
     }
     
     
     @objc func addTapped()
     {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
-            vc.delegate = self
             let newNote = NCNote(title: "", text: "")
             vc.selectedNote = newNote
             navigationController?.pushViewController(vc, animated: true)
@@ -83,79 +70,50 @@ class HomeTableVC: UITableViewController, NoteDetailVCDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
-            vc.delegate = self
             vc.selectedNote = notes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
+    //-------------------------------------//
+    // MARK: - TABLEVIEW DELETION HANDLING
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
     
-    // does not swipe for delete when this is grayed out
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
+        guard editingStyle == .delete else { return }
+        
+        // delete in userdefaults
+        PersistenceManager.updateWith(note: notes[indexPath.row], actionType: .remove) { [weak self] error in
+            guard let error = error else {
+                // delete in notes array
+                self?.notes.remove(at: indexPath.row)
+                // delete in UI
+                tableView.deleteRows(at: [indexPath], with: .left)
+                return
+            }
             
-            let note = notes[indexPath.row]
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            tableView.endUpdates()
+            self?.presentNCAlertOnMainThread(alertTitle: "Remove unsuccessful", msg: error.rawValue, btnTitle: "Ok")
         }
     }
     
     //-------------------------------------//
-    // MARK: - NoteDetailVC Delegate Methods (SAVING & LOADING)
-    
-    func updateNotes(with thisNote: NCNote)
-    {
-        PersistenceManager.updateWith(note: thisNote, actionType: .add) { [weak self] error in
-            if error != nil {
-                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
-            } else {
-                print("save successful")
-                self?.loadNotes()
-                self?.tableView.reloadData()
-            }
-        }
-    }
-    
+    // MARK: - SAVING & LOADING
     
     func loadNotes()
     {
+        print("inside load notes")
         PersistenceManager.retrieveNotes { [weak self] result in
             switch result {
             case .success(let updatedNotes):
                 self?.notes = updatedNotes
-            case .failure(_):
-                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: MessageKeys.loadFail, btnTitle: "Ok")
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.presentNCAlertOnMainThread(alertTitle: "Load Failed", msg: error.rawValue, btnTitle: "Ok")
             }
         }
     }
-    
-    
-//    func delete(note: NCNote, atIndex indexPath: IndexPath)
-//    {
-//        notes.removeAll{ $0.key == note.key }
-//        PersistenceManager.delete(noteForKey: note.key.description)
-//        notes.remove(at: indexPath.row)
-//        PersistenceManager.saveAll(notes: notes)
-//    }
-    
-//    func updateNotes(with thisNote: NCNote)
-//    {
-////        notes.removeAll{ $0.key == thisNote.key }
-//        notes.append(thisNote)
-//        
-//        PersistenceManager.delete(noteForKey: thisNote.key.description)
-//        PersistenceManager.save(note: thisNote)
-//        PersistenceManager.saveAll(notes: notes)
-//        
-//        tableView.reloadData()
-//    }
-    
 }

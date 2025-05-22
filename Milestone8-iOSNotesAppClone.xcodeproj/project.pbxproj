@@ -14,6 +14,7 @@
 		400809E62DCC61900064778D /* Constants+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809E52DCC61900064778D /* Constants+Utils.swift */; };
 		400809E92DCC62A80064778D /* NCNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400809E82DCC62A80064778D /* NCNote.swift */; };
 		405B2E352DDCC30000F639F6 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2E342DDCC30000F639F6 /* UIViewController+Ext.swift */; };
+		408C49D02DDEA8DB00D34449 /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C49CF2DDEA8DB00D34449 /* UIAlertController+Ext.swift */; };
 		4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F42DC686AF0027AB42 /* Assets.xcassets */; };
 		4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4094E6F92DC686AF0027AB42 /* Main.storyboard */; };
 		4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6F32DC686AF0027AB42 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		400809E52DCC61900064778D /* Constants+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Utils.swift"; sourceTree = "<group>"; };
 		400809E82DCC62A80064778D /* NCNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNote.swift; sourceTree = "<group>"; };
 		405B2E342DDCC30000F639F6 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		408C49CF2DDEA8DB00D34449 /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 		4094E6BC2DC5FDED0027AB42 /* Milestone8-iOSNotesAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone8-iOSNotesAppClone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6D52DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094E6DF2DC5FDF70027AB42 /* Milestone8-iOSNotesAppCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone8-iOSNotesAppCloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				405B2E342DDCC30000F639F6 /* UIViewController+Ext.swift */,
+				408C49CF2DDEA8DB00D34449 /* UIAlertController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408C49D02DDEA8DB00D34449 /* UIAlertController+Ext.swift in Sources */,
 				4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */,
 				405B2E352DDCC30000F639F6 /* UIViewController+Ext.swift in Sources */,
 				40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */,

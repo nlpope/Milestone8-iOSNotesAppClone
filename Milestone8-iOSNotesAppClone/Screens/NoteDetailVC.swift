@@ -4,13 +4,10 @@
 
 import UIKit
 
-protocol NoteDetailVCDelegate: AnyObject { func updateNotes(with thisNote: NCNote) }
-
 class NoteDetailVC: UIViewController
 {
     @IBOutlet var noteTextView: UITextView!
     var selectedNote: NCNote!
-    var delegate: NoteDetailVCDelegate!
     
     override func viewDidLoad()
     {
@@ -26,14 +23,55 @@ class NoteDetailVC: UIViewController
     
     func setNavigation()
     {
-        let doneitem = UIBarButtonItem(barButtonSystemItem: .done,
-                                          target: self,
-                                          action: #selector(doneTapped))
-        navigationItem.rightBarButtonItem = doneitem
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                       target: self,
+                                       action: #selector(doneTapped))
+        let composeItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(composeTapped))
+        
+        let deleteItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteTapped))
+        deleteItem.tintColor = .systemRed
+        
+        let shareItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareTapped))
+        navigationItem.rightBarButtonItems = [doneItem, composeItem, shareItem, deleteItem]
     }
     
     //-------------------------------------//
-    // MARK: SAVE & LOAD
+    // MARK: NAVIGATION ITEMS (UPDATING)
+    
+    @objc func deleteTapped()
+    {
+        let msg = "Are you sure you'd like to delete this note?"
+        let action1 = UIAlertAction(title: "No", style: .default)
+        
+        // click handler doesn't escape so weak self need not be captured
+        let action2 = UIAlertAction(title: "Yes", style: .destructive) { _ in
+            PersistenceManager.updateWith(note: self.selectedNote, actionType: .remove) { [weak self] error in
+                guard let error = error else {
+                    
+                    self?.navigationController?.popViewController(animated: true)
+                    return
+                }
+                self?.presentNCAlertOnMainThread(alertTitle: "Deletion Failed", msg: error.rawValue, btnTitle: "Ok")
+            }
+        }
+        
+        let ac = UIAlertController(title: "Delete this note?", message: msg, preferredStyle: .alert)
+        ac.addActions(action1, action2)
+        present(ac, animated: true)
+    }
+    
+    
+    @objc func shareTapped()
+    {
+        print("share tapped")
+    }
+    
+    
+    @objc func composeTapped()
+    {
+        print("compose tapped")
+    }
+    
     
     @objc func doneTapped()
     {
@@ -45,7 +83,10 @@ class NoteDetailVC: UIViewController
             selectedNote.text = noteText
             selectedNote.title = String(newNoteTitle)
         }
-
-        delegate.updateNotes(with: selectedNote)
+        
+        PersistenceManager.updateWith(note: selectedNote, actionType: .add) { [weak self] error in
+            guard let error = error else { return }
+            self?.presentNCAlertOnMainThread(alertTitle: "Update unsuccessful", msg: error.rawValue, btnTitle: "Ok")
+        }
     }
 }
