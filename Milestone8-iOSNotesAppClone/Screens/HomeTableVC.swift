@@ -4,25 +4,28 @@
 
 import UIKit
 
-class HomeTableVC: UITableViewController
+class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsUpdating
 {
     @IBOutlet var searchBar: UISearchBar!
     var notes = [NCNote]()
+    var filteredNotes = [NCNote]()
     var addButton: UIBarButtonItem!
+    var isSearching: Bool = false
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        setNavigation()
+        configNavigation()
+        configSearchController()
     }
     
     
     override func viewWillAppear(_ animated: Bool) { loadNotes() }
     
     //-------------------------------------//
-    // MARK: SET UP
+    // MARK: CONFIGURATION
     
-    func setNavigation()
+    func configNavigation()
     {
         view.backgroundColor = .systemBackground
         title = "Notes"
@@ -43,6 +46,19 @@ class HomeTableVC: UITableViewController
         }
     }
     
+    
+    func configSearchController()
+    {
+        let mySearchController = UISearchController()
+        mySearchController.searchResultsUpdater = self
+        mySearchController.searchBar.delegate = self
+        mySearchController.searchBar.placeholder = "Search notes"
+        mySearchController.obscuresBackgroundDuringPresentation = true
+        
+        navigationItem.searchController = mySearchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
     //-------------------------------------//
     // MARK: TABLEVC DELEGATE & DATASOURCE METHODS
     
@@ -51,16 +67,19 @@ class HomeTableVC: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return notes.count
+        return isSearching ? filteredNotes.count : notes.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        let activeArray = isSearching ? filteredNotes : notes
+        
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "NCCell")
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") }
-        let title = notes[indexPath.row].title
-        cell.textLabel?.text = title == "" ? "New Note" : title
+        
+        let title = activeArray[indexPath.row].title
+        cell.textLabel?.text = title == "" ? "Untitled" : title
         
         return cell
     }
@@ -68,8 +87,9 @@ class HomeTableVC: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        let activeArray = isSearching ? filteredNotes : notes
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
-            vc.selectedNote = notes[indexPath.row]
+            vc.selectedNote = activeArray[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -114,4 +134,40 @@ class HomeTableVC: UITableViewController
             }
         }
     }
+    
+    //-------------------------------------//
+    // MARK: - SEARCHING
+    
+    func updateUIWithSearchResults() { DispatchQueue.main.async { self.tableView.reloadData() } }
+    
+    
+    func updateSearchResults(for searchController: UISearchController)
+    {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        isSearching = true
+        filteredNotes = notes.filter {
+            $0.title.lowercased().contains(filter.lowercased())
+            || $0.text.lowercased().contains(filter.lowercased())
+        }
+        updateUIWithSearchResults()
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
+    {
+        searchBar.resignFirstResponder()
+        isSearching = false
+        updateUIWithSearchResults()
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    {
+        if searchText == "" {
+            updateUIWithSearchResults()
+        }
+    }
+    
+    
+//    func updateData(on notes: [NCNote]) { DispatchQueue.main.async { self.tableView.reloadData() } }
 }

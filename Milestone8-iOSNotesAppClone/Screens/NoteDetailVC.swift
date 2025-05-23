@@ -13,7 +13,7 @@ class NoteDetailVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        setNavigation()
+        configNavigation()
         setUpKeyboardNotifications()
         noteTextView.text = selectedNote.text
     }
@@ -21,9 +21,9 @@ class NoteDetailVC: UIViewController
     override func viewWillDisappear(_ animated: Bool) { if !noteDeleted { doneTapped() } }
     
     //-------------------------------------//
-    // MARK: - SET UP
+    // MARK: - CONFIGURATION
     
-    func setNavigation()
+    func configNavigation()
     {
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done,
                                        target: self,
