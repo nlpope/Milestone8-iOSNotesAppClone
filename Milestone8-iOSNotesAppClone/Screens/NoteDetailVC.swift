@@ -8,6 +8,7 @@ class NoteDetailVC: UIViewController
 {
     @IBOutlet var noteTextView: UITextView!
     var selectedNote: NCNote!
+    var noteDeleted: Bool = false
     
     override func viewDidLoad()
     {
@@ -16,7 +17,7 @@ class NoteDetailVC: UIViewController
         noteTextView.text = selectedNote.text
     }
     
-    override func viewWillDisappear(_ animated: Bool) { doneTapped() }
+    override func viewWillDisappear(_ animated: Bool) { if !noteDeleted { doneTapped() } }
     
     //-------------------------------------//
     // MARK: - SET UP
@@ -47,7 +48,7 @@ class NoteDetailVC: UIViewController
         let action2 = UIAlertAction(title: "Yes", style: .destructive) { _ in
             PersistenceManager.updateWith(note: self.selectedNote, actionType: .remove) { [weak self] error in
                 guard let error = error else {
-                    
+                    self?.noteDeleted = true
                     self?.navigationController?.popViewController(animated: true)
                     return
                 }

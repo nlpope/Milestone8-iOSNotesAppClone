@@ -14,11 +14,10 @@ class HomeTableVC: UITableViewController
     {
         super.viewDidLoad()
         setNavigation()
-        loadNotes()
     }
     
     
-//    override func viewWillAppear(_ animated: Bool) { print("vwappear entered"); loadNotes() }
+    override func viewWillAppear(_ animated: Bool) { loadNotes() }
     
     //-------------------------------------//
     // MARK: SET UP
@@ -101,11 +100,10 @@ class HomeTableVC: UITableViewController
     }
     
     //-------------------------------------//
-    // MARK: - SAVING & LOADING
+    // MARK: - PERSISTENCE
     
     func loadNotes()
     {
-        print("inside load notes")
         PersistenceManager.retrieveNotes { [weak self] result in
             switch result {
             case .success(let updatedNotes):
