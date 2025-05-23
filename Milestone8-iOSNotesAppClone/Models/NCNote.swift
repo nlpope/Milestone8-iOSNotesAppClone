@@ -4,9 +4,11 @@
 
 import Foundation
 
-struct NCNote: Codable
+struct NCNote: Codable, Hashable
 {
     var title: String
     var text: String
     var key = UUID()
+    
+    func hash(into hasher: inout Hasher) { hasher.combine(title) }
 }

@@ -6,7 +6,10 @@ import UIKit
 
 class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsUpdating
 {
+    enum Section { case main }
+    
     @IBOutlet var searchBar: UISearchBar!
+    var dataSource: UITableViewDiffableDataSource<Section, NCNote>!
     var notes = [NCNote]()
     var filteredNotes = [NCNote]()
     var addButton: UIBarButtonItem!
@@ -16,6 +19,7 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
     {
         super.viewDidLoad()
         configNavigation()
+        configDiffableDataSource()
         configSearchController()
     }
     
@@ -24,6 +28,33 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
     
     //-------------------------------------//
     // MARK: CONFIGURATION
+    
+    func configDiffableDataSource()
+    {
+        dataSource = UITableViewDiffableDataSource(tableView: self.tableView) { tableView, indexPath, note in
+            var cell = tableView.dequeueReusableCell(withIdentifier: "NCCell")
+            if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "GenericCell") }
+            cell?.textLabel?.text = note.title
+            
+            return cell
+        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+//    {
+//        let activeArray = isSearching ? filteredNotes : notes
+//        
+//        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "NCCell")
+//        if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") }
+//        
+//        let title = activeArray[indexPath.row].title
+//        cell.textLabel?.text = title == "" ? "Untitled" : title
+//        
+//        return cell
+//    }
+    
+    
+    
     
     func configNavigation()
     {
@@ -34,16 +65,6 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
         addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTapped))
        
         navigationItem.rightBarButtonItem = addButton
-    }
-    
-    
-    @objc func addTapped()
-    {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
-            let newNote = NCNote(title: "", text: "")
-            vc.selectedNote = newNote
-            navigationController?.pushViewController(vc, animated: true)
-        }
     }
     
     
@@ -76,7 +97,7 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
         let activeArray = isSearching ? filteredNotes : notes
         
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "NCCell")
-        if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") }
+        if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "GenericCell") }
         
         let title = activeArray[indexPath.row].title
         cell.textLabel?.text = title == "" ? "Untitled" : title
@@ -168,6 +189,15 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
         }
     }
     
+    //-------------------------------------//
+    // MARK: - NAVIGATION ITEMS (ADDING NEW NOTES)
     
-//    func updateData(on notes: [NCNote]) { DispatchQueue.main.async { self.tableView.reloadData() } }
+    @objc func addTapped()
+    {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetailVC") as? NoteDetailVC {
+            let newNote = NCNote(title: "", text: "")
+            vc.selectedNote = newNote
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
