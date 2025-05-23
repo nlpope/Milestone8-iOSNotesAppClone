@@ -14,6 +14,7 @@ class NoteDetailVC: UIViewController
     {
         super.viewDidLoad()
         setNavigation()
+        setUpKeyboardNotifications()
         noteTextView.text = selectedNote.text
     }
     
@@ -64,14 +65,18 @@ class NoteDetailVC: UIViewController
     
     @objc func shareTapped()
     {
-        print("share tapped")
+        guard let noteText = noteTextView.text else {
+            let error = NCError.noNoteToSend
+            presentNCAlertOnMainThread(alertTitle: "No note to send", msg: error.rawValue, btnTitle: "Ok")
+            return
+        }
+        let vc = UIActivityViewController(activityItems: [noteText], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
     
-    @objc func composeTapped()
-    {
-        print("compose tapped")
-    }
+    @objc func composeTapped() { noteTextView.becomeFirstResponder() }
     
     
     @objc func doneTapped()
@@ -89,5 +94,33 @@ class NoteDetailVC: UIViewController
             guard let error = error else { return }
             self?.presentNCAlertOnMainThread(alertTitle: "Update unsuccessful", msg: error.rawValue, btnTitle: "Ok")
         }
+    }
+    
+    
+    //-------------------------------------//
+    // MARK: - KEYBOARD SETTINGS
+    
+    func setUpKeyboardNotifications()
+    {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    
+    @objc func adjustForKeyboard(notification: Notification)
+    {
+        let keyboardShape = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+        guard let keyboardValue = keyboardShape as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let bottom = keyboardViewEndFrame.height - view.safeAreaInsets.bottom
+        
+        if notification.name == UIResponder.keyboardWillHideNotification { noteTextView.contentInset = .zero }
+        else { noteTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0)}
+        
+        noteTextView.scrollIndicatorInsets = noteTextView.contentInset
+        noteTextView.scrollRangeToVisible(noteTextView.selectedRange)
     }
 }
