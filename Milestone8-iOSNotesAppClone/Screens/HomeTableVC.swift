@@ -2,6 +2,7 @@
 //  Project: Milestone8-iOSNotesAppClone
 //  Created by: Noah Pope on 5/3/25.
 #warning("no console warnings(?) + add launch screen when done - every app from here on")
+#warning("clicking on note while searching is exiting the search field and going back to all notes - fix")
 import UIKit
 
 class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsUpdating
