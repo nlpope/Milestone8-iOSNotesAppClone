@@ -58,7 +58,7 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
         dataSource = UITableViewDiffableDataSource(tableView: tableView) { tableView, indexPath, note in
             var cell = tableView.dequeueReusableCell(withIdentifier: "NCCell")
             if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "GenericCell") }
-            cell?.textLabel?.text = note.title
+            cell?.textLabel?.text = note.title == "" ? "Untitled" : note.title
             
             return cell
         }
