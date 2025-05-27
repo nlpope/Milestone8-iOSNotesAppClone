@@ -22,6 +22,7 @@
 		4094E7052DC686AF0027AB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FB2DC686AF0027AB42 /* SceneDelegate.swift */; };
 		4094E7062DC686AF0027AB42 /* HomeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */; };
 		40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */; };
+		40BC53E52DE550800059F842 /* launchscreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40BC53E42DE550800059F842 /* launchscreen.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		4094E6FC2DC686AF0027AB42 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
 		4094E6FE2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone8_iOSNotesAppClone.xcdatamodel; sourceTree = "<group>"; };
 		40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NCError+Utils.swift"; sourceTree = "<group>"; };
+		40BC53E42DE550800059F842 /* launchscreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = launchscreen.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -177,6 +179,7 @@
 				400809DD2DCC5F740064778D /* KeychainItemAccessibility.swift */,
 				400809DE2DCC5F740064778D /* KeychainWrapper.swift */,
 				4094E6F42DC686AF0027AB42 /* Assets.xcassets */,
+				40BC53E42DE550800059F842 /* launchscreen.mp4 */,
 				4094E6F92DC686AF0027AB42 /* Main.storyboard */,
 				4094E6FA2DC686AF0027AB42 /* Milestone8_iOSNotesAppClone.xcdatamodeld */,
 			);
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4094E6FF2DC686AF0027AB42 /* Assets.xcassets in Resources */,
+				40BC53E52DE550800059F842 /* launchscreen.mp4 in Resources */,
 				4094E7022DC686AF0027AB42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

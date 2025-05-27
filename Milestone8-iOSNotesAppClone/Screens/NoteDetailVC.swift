@@ -96,7 +96,6 @@ class NoteDetailVC: UIViewController
         }
     }
     
-    
     //-------------------------------------//
     // MARK: - KEYBOARD SETTINGS
     

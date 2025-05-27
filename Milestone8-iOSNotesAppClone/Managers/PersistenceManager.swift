@@ -20,9 +20,7 @@ enum PersistenceManager
         retrieveNotes { result in
             switch result {
             case .success(var notes):
-                print("before remove notes = \(notes.count)\n")
                 handle(actionType: actionType, onNote: note, inArray: &notes)
-                print("\nafter remove notes = \(notes.count)")
                 completed(save(notes: notes))
             case .failure(let error):
                 completed(error)
