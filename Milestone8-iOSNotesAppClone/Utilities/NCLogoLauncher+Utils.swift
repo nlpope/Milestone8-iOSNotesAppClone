@@ -2,58 +2,103 @@
 //  Project: Milestone8-iOSNotesAppClone
 //  Created by: Noah Pope on 5/26/25.
 
+//  * ADD THE AVPLAYER+EXT FILE
+//  * ADD THE DEINIT METHOD
+//  * SEE IOS NOTES CLONE FOR 'ISFIRSTVISIT' REFERENCES IN SCENEDELEGATE
+//  * BE SURE 'FORRESOURCE' NAME INS CONTANTS MATCHES LAUNCHSCREEN.MP4 FILE
+
 import UIKit
 import AVKit
 import AVFoundation
 
 class NCLogoLauncher
 {
-    var vc: UIViewController!
+    var targetVC: HomeTableVC!
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var animationDidPause = false
+    var isFirstVisit: Bool! = PersistenceManager.retrieveFirstVisitStatus() {
+        didSet { PersistenceManager.save(firstVisitStatus: isFirstVisit) }
+    }
     
-    init(vc: UIViewController) { self.vc = vc }
+    init(targetVC: UIViewController) { self.targetVC = targetVC as? HomeTableVC }
     
-    func configureLogoLauncher()
+    
+    func configLogoLauncher( )
     {
-        print("logo config accessed")
+        maskHomeVCForIntro()
+        configNotifications()
+        
         guard let url = Bundle.main.url(forResource: VideoKeys.launchScreen, withExtension: ".mp4")
         else { return }
         
         player = AVPlayer.init(url: url)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
-        playerLayer?.frame = vc.view.layer.frame
+        playerLayer?.frame = targetVC.view.layer.frame
         playerLayer?.name = VideoKeys.playerLayerName
         player?.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.mixWithOthers)
         } catch {
-            print("Background noise interruption unsuccessful")
+            print("Background noise inclusion unsuccessful")
         }
         
         player?.play()
         
-        vc.view.layer.insertSublayer(playerLayer!, at: 0)
+        targetVC.view.layer.insertSublayer(playerLayer!, at: 0)
         
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     
     
-    @objc func playerDidFinishPlaying()
+    func maskHomeVCForIntro()
     {
-        
+        targetVC.navigationController?.isNavigationBarHidden = true
     }
     
     
-    func removeAllAVPlayers()
+    func configNotifications()
     {
-        if let layers = vc.view.layer.sublayers {
+        NotificationCenter.default.addObserver(self, selector: #selector(setPlayerLayerToNil), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reinitializePlayerLayer), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPlayerLayerToNil), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reinitializePlayerLayer), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    
+    @objc func playerDidFinishPlaying()
+    {
+        isFirstVisit = false
+        removeAllAVPlayerLayers()
+        targetVC.navigationController?.isNavigationBarHidden = false
+        targetVC.loadNotes()
+    }
+    
+    
+    func removeAllAVPlayerLayers()
+    {
+        if let layers = targetVC.view.layer.sublayers {
             for (i, layer) in layers.enumerated() {
                 if layer.name == VideoKeys.playerLayerName { layers[i].removeFromSuperlayer() }
             }
+        }
+    }
+    
+    
+    @objc func setPlayerLayerToNil() { player?.pause(); playerLayer = nil }
+    
+    
+    @objc func reinitializePlayerLayer()
+    {
+        guard isFirstVisit else { return }
+        if let player = player {
+            playerLayer = AVPlayerLayer(player: player)
+            playerLayer?.name = VideoKeys.playerLayerName
+            
+            if #available(iOS 10.0, *) { if player.timeControlStatus == .paused { player.play() } }
+            else { if player.isPlaying == false { player.play() } }
         }
     }
 }

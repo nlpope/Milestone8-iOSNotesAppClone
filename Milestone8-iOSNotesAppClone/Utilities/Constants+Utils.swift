@@ -23,6 +23,6 @@ enum MessageKeys
 
 enum VideoKeys
 {
-    static let launchScreen = "LaunchScreen"
+    static let launchScreen = "launchscreen"
     static let playerLayerName = "PlayerLayerName"
 }

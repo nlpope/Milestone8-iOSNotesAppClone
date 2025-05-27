@@ -13,10 +13,12 @@ enum PersistenceManager
     
     static private let defaults = UserDefaults.standard
     
-    static var isFirstVisitStatus: Bool = true 
+    static var isFirstVisitStatus: Bool! = true {
+        didSet { PersistenceManager.save(firstVisitStatus: self.isFirstVisitStatus) }
+    }
     
     // the escape is what makes this cleaner
-    // means I don't need to return arrays and save/load all over the place
+    // ..means I don't need to return arrays and save/load all over the place
     static func updateWith(note: NCNote, actionType: PersistenceActionType, completed: @escaping (NCError?) -> Void)
     {
         retrieveNotes { result in
@@ -70,9 +72,15 @@ enum PersistenceManager
     
     static func retrieveFirstVisitStatus() -> Bool
     {
-        if let status = UserDefaults.value(forKey: SaveKeys.isFirstVisit) {
-            return status as! Bool
-        } else {
+        guard let visitStatusData = defaults.object(forKey: SaveKeys.isFirstVisit) as? Data
+        else { return true }
+        
+        do {
+            let decoder = JSONDecoder()
+            let savedStatus = try decoder.decode(Bool.self, from: visitStatusData)
+            return savedStatus
+        } catch {
+            print("unable to load first visit status")
             return true
         }
     }

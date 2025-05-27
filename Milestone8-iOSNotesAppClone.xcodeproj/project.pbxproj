@@ -24,6 +24,7 @@
 		40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */; };
 		40BC53E52DE550800059F842 /* launchscreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40BC53E42DE550800059F842 /* launchscreen.mp4 */; };
 		40BC53E92DE561090059F842 /* NCLogoLauncher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC53E82DE561090059F842 /* NCLogoLauncher+Utils.swift */; };
+		40BC53EB2DE5FC760059F842 /* AVPlayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC53EA2DE5FC760059F842 /* AVPlayer+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		40B2E3892DD8D8CD007E9676 /* NCError+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NCError+Utils.swift"; sourceTree = "<group>"; };
 		40BC53E42DE550800059F842 /* launchscreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = launchscreen.mp4; sourceTree = "<group>"; };
 		40BC53E82DE561090059F842 /* NCLogoLauncher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NCLogoLauncher+Utils.swift"; sourceTree = "<group>"; };
+		40BC53EA2DE5FC760059F842 /* AVPlayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -136,6 +138,7 @@
 			children = (
 				405B2E342DDCC30000F639F6 /* UIViewController+Ext.swift */,
 				408C49CF2DDEA8DB00D34449 /* UIAlertController+Ext.swift */,
+				40BC53EA2DE5FC760059F842 /* AVPlayer+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				4094E7032DC686AF0027AB42 /* AppDelegate.swift in Sources */,
 				405B2E352DDCC30000F639F6 /* UIViewController+Ext.swift in Sources */,
 				40B2E38A2DD8D8CD007E9676 /* NCError+Utils.swift in Sources */,
+				40BC53EB2DE5FC760059F842 /* AVPlayer+Ext.swift in Sources */,
 				400809E62DCC61900064778D /* Constants+Utils.swift in Sources */,
 				400809D62DCA50120064778D /* NoteDetailVC.swift in Sources */,
 				400809DF2DCC5F740064778D /* KeychainWrapper.swift in Sources */,

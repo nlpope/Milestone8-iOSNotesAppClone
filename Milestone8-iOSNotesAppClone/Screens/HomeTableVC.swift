@@ -7,7 +7,7 @@ import AVKit
 import AVFoundation
 
 // UITableVC's auto set the datasource & delegate props to 'self'
-class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsUpdating
+class HomeTableVC: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating
 {
     enum Section { case main }
     
@@ -15,29 +15,31 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
     var notes = [NCNote]()
     var filteredNotes = [NCNote]()
     var addButton: UIBarButtonItem!
-    var isFirstVisit: Bool! = PersistenceManager.retrieveFirstVisitStatus() {
-        didSet { PersistenceManager.save(firstVisitStatus: isFirstVisit) }
-    }
     var logoLauncher: NCLogoLauncher!
+    var player = AVPlayer()
+
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        PersistenceManager.isFirstVisitStatus = true
         configNavigation()
         configSearchController()
         configDiffableDataSource()
     }
     
     
+ 
+    
+    
     override func viewWillAppear(_ animated: Bool)
     {
-        logoLauncher = NCLogoLauncher(vc: self)
-        if isFirstVisit { isFirstVisit = false; logoLauncher.configureLogoLauncher() }
-        loadNotes()
+        logoLauncher = NCLogoLauncher(targetVC: self)
+        if PersistenceManager.retrieveFirstVisitStatus() { logoLauncher.configLogoLauncher() }
     }
     
     
-    deinit { logoLauncher.removeAllAVPlayers() }
+//    deinit { logoLauncher.removeAllAVPlayerLayers() }
     
     //-------------------------------------//
     // MARK: CONFIGURATION
