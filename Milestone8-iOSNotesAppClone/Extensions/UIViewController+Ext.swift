@@ -3,6 +3,8 @@
 //  Created by: Noah Pope on 5/20/25.
 
 import UIKit
+import AVKit
+import AVFoundation
 
 extension UIViewController
 {

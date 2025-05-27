@@ -3,6 +3,8 @@
 //  Created by: Noah Pope on 5/3/25.
 
 import UIKit
+import AVKit
+import AVFoundation
 
 // UITableVC's auto set the datasource & delegate props to 'self'
 class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsUpdating
@@ -13,6 +15,10 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
     var notes = [NCNote]()
     var filteredNotes = [NCNote]()
     var addButton: UIBarButtonItem!
+    var isFirstVisit: Bool! = PersistenceManager.retrieveFirstVisitStatus() {
+        didSet { PersistenceManager.save(firstVisitStatus: isFirstVisit) }
+    }
+    var logoLauncher: NCLogoLauncher!
     
     override func viewDidLoad()
     {
@@ -23,7 +29,15 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate & UISearchResultsU
     }
     
     
-    override func viewWillAppear(_ animated: Bool) { loadNotes() }
+    override func viewWillAppear(_ animated: Bool)
+    {
+        logoLauncher = NCLogoLauncher(vc: self)
+        if isFirstVisit { isFirstVisit = false; logoLauncher.configureLogoLauncher() }
+        loadNotes()
+    }
+    
+    
+    deinit { logoLauncher.removeAllAVPlayers() }
     
     //-------------------------------------//
     // MARK: CONFIGURATION

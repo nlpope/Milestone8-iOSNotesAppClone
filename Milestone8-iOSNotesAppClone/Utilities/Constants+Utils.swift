@@ -7,6 +7,7 @@ import Foundation
 enum SaveKeys
 {
     static let allNotes = "AllNotes"
+    static let isFirstVisit = "FirstVisit"
 }
 
 enum MaskKeys
@@ -18,4 +19,10 @@ enum MaskKeys
 enum MessageKeys
 {
     static let removeFail = "Unable to delete this note. Please try again."
+}
+
+enum VideoKeys
+{
+    static let launchScreen = "LaunchScreen"
+    static let playerLayerName = "PlayerLayerName"
 }

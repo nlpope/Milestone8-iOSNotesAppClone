@@ -13,6 +13,8 @@ enum PersistenceManager
     
     static private let defaults = UserDefaults.standard
     
+    static var isFirstVisitStatus: Bool = true 
+    
     // the escape is what makes this cleaner
     // means I don't need to return arrays and save/load all over the place
     static func updateWith(note: NCNote, actionType: PersistenceActionType, completed: @escaping (NCError?) -> Void)
@@ -40,18 +42,15 @@ enum PersistenceManager
         }
     }
     
-
-    static func retrieveNotes(completed: @escaping (Result<[NCNote],NCError>) -> Void)
+    
+    static func save(firstVisitStatus: Bool)
     {
-        guard let notesData = defaults.object(forKey: SaveKeys.allNotes) as? Data
-        else { completed(.success([])); return }
-        
         do {
-            let decoder = JSONDecoder()
-            let savedNotes = try decoder.decode([NCNote].self, from: notesData)
-            completed(.success(savedNotes))
+            let encoder = JSONEncoder()
+            let encodedStatus = try encoder.encode(firstVisitStatus)
+            defaults.set(encodedStatus, forKey: SaveKeys.isFirstVisit)
         } catch {
-            completed(.failure(.unableToLoad))
+            print("cannot save is first visit bool")
         }
     }
     
@@ -65,6 +64,31 @@ enum PersistenceManager
             return nil
         } catch {
             return .unableToSave
+        }
+    }
+    
+    
+    static func retrieveFirstVisitStatus() -> Bool
+    {
+        if let status = UserDefaults.value(forKey: SaveKeys.isFirstVisit) {
+            return status as! Bool
+        } else {
+            return true
+        }
+    }
+    
+
+    static func retrieveNotes(completed: @escaping (Result<[NCNote],NCError>) -> Void)
+    {
+        guard let notesData = defaults.object(forKey: SaveKeys.allNotes) as? Data
+        else { completed(.success([])); return }
+        
+        do {
+            let decoder = JSONDecoder()
+            let savedNotes = try decoder.decode([NCNote].self, from: notesData)
+            completed(.success(savedNotes))
+        } catch {
+            completed(.failure(.unableToLoad))
         }
     }
 }
