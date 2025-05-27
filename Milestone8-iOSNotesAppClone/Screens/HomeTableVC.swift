@@ -28,18 +28,16 @@ class HomeTableVC: UITableViewController, UISearchBarDelegate, UISearchResultsUp
         configDiffableDataSource()
     }
     
-    
- 
-    
-    
+
     override func viewWillAppear(_ animated: Bool)
     {
         logoLauncher = NCLogoLauncher(targetVC: self)
         if PersistenceManager.retrieveFirstVisitStatus() { logoLauncher.configLogoLauncher() }
+        else { loadNotes() }
     }
     
     
-//    deinit { logoLauncher.removeAllAVPlayerLayers() }
+    deinit { logoLauncher.removeAllAVPlayerLayers() }
     
     //-------------------------------------//
     // MARK: CONFIGURATION
