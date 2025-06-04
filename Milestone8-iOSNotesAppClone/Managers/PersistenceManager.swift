@@ -37,10 +37,10 @@ enum PersistenceManager
     {
         switch actionType {
         case .add:
-            notes.removeAll{ $0.key == note.key }
+            notes.removeAll { $0.key == note.key }
             notes.append(note)
         case .remove:
-            notes.removeAll{ $0.key == note.key }
+            notes.removeAll { $0.key == note.key }
         }
     }
     
