@@ -24,7 +24,7 @@ class NCLogoLauncher
     init(targetVC: UIViewController) { self.targetVC = targetVC as? HomeTableVC }
     
     
-    func configLogoLauncher( )
+    func configLogoLauncher()
     {
         maskHomeVCForIntro()
         configNotifications()
